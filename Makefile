@@ -6,7 +6,7 @@
 #    By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/23 01:36:34 by brda-sil          #+#    #+#              #
-#    Updated: 2022/05/22 19:54:59 by brda-sil         ###   ########.fr        #
+#    Updated: 2022/05/23 22:29:06 by brda-sil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,7 +49,7 @@ FT_PRINTF		:= $(LIB_DIR)/ft_printf/ft_printf.a
 GET_NEXT_LINE	:= $(LIB_DIR)/gnl/get_next_line.a
 
 # SRC
-SRC_C			:= $(wildcard $(SRC_DIR)/*.c)
+SRC_C			:= src/blank.c
 
 # OBJ
 OBJ_C			:= $(patsubst $(SRC_DIR)/%,$(OBJ_DIR)/%,$(SRC_C:%.c=%.o))
