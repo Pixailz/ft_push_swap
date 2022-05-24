@@ -1,7 +1,7 @@
 #!/bin/sh
 
 SRC_DIR="src"
-INC_FILE="includes/blank.h"
+INC_FILE="includes/push_swap.h"
 
 while [ "$1" != "" ]
 do
@@ -16,7 +16,7 @@ done
 insert_at_line()
 {
 	sed -i "${cursor}i ${1}" ${INC_FILE}
-	cursor=$(echo "${cursor} 1 +p" | dc)
+	let "cursor=cursor+1"
 }
 
 clear_header()
