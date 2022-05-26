@@ -6,28 +6,76 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 17:22:09 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/05/25 23:16:24 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/05/26 05:21:38 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	parse_check_string_part2(char **tmp_list, int number_arg, int *number)
+int	parse_check_is_str_numeric(const char *str)
 {
-	int	i;
-	int	j;
-	int	tmp_number;
+	char	*tmp;
+	int		have_hyphen;
+	int		is_numeric;
+
+	have_hyphen = 0;
+	is_numeric = 1;
+	tmp = (char *)str;
+	if (*tmp == '-')
+	{
+		have_hyphen = 1;
+		if (!*(tmp + 1))
+			is_numeric = 0;
+		tmp++;
+	}
+	while (*tmp)
+	{
+		if (*tmp < '0' && *tmp > '9')
+			is_numeric = 0;
+		tmp++;
+	}
+	return ((have_hyphen && is_numeric) || is_numeric);
+}
+
+long int	parse_check_is_good_number(char **tmp_list, int i, long int *number)
+{
+	long int	tmp_number;
+
+	if (!parse_check_is_str_numeric(tmp_list[i]))
+	{
+		ft_split_free(tmp_list);
+		free(tmp_list);
+		free(number);
+		ft_error("String is not numeric");
+	}
+	tmp_number = ft_atol(tmp_list[i]);
+	if (tmp_number > MAX_INT)
+	{
+		ft_split_free(tmp_list);
+		free(tmp_list);
+		free(number);
+		ft_error("Number to big\n");
+	}
+	else if (tmp_number < MIN_INT)
+	{
+		ft_split_free(tmp_list);
+		free(tmp_list);
+		free(number);
+		ft_error("Number to small\n");
+	}
+	return (tmp_number);
+}
+
+int	parse_check_string_part2(char **tmp_list, int number_arg, long int *number)
+{
+	int			i;
+	int			j;
 
 	i = 0;
 	while (i < number_arg)
 	{
 		j = 0;
-		tmp_number = ft_atol(tmp_list[i]);
-		if (tmp_number > INT_MAX)
-			ft_error("Number to big");
-		else if (tmp_number < INT_MIN)
-			ft_error("Number to small");
-		number[i] = tmp_number;
+		number[i] = parse_check_is_good_number(tmp_list, i, number);
 		while (j < i)
 		{
 			if (number[j++] == number[i])
@@ -40,43 +88,38 @@ int	parse_check_string_part2(char **tmp_list, int number_arg, int *number)
 
 int	parse_check_one_string(char *argv)
 {
-	long int	number_arg;
-	int			i;
-	int			j;
+	int			number_arg;
 	char		**tmp_list;
-	int			*number;
+	long int	*number;
+	int			i;
 
 	number_arg = ft_get_words(argv, ' ');
 	number = (long int *)malloc(sizeof(long int) * number_arg);
 	if (!number)
 		return (0);
-	tmp_list = (char **)malloc(sizeof(char *) * number_arg);
 	tmp_list = ft_split(argv, ' ');
-	return (parse_check_string_part2(tmp_list, number_arg, number));
+	i = parse_check_string_part2(tmp_list, number_arg, number);
+	free(number);
+	ft_split_free(tmp_list);
+	free(tmp_list);
+	return (i);
 }
 
 int	parse_check_multiple_string(char **argv, int argc)
 {
-	int	*number;
-	int	i;
-	int	j;
+	long int	*number;
+	int			i;
 
-	number = (int *)malloc(sizeof(int) * argc);
+	number = (long int *)malloc(sizeof(long int) * argc);
 	if (!number)
 		return (0);
 	i = 0;
 	while (i < argc - 1)
 	{
-		j = 0;
-		number[i] = ft_atoi(argv[i + 1]);
-		while (j < i)
-		{
-			if (number[j] == number[i])
-				return (0);
-			j++;
-		}
+		number[i] = ft_atol(argv[i + 1]);
 		i++;
 	}
-	parse_check_string_part2(argv, argc, number);
-	return (1);
+	i = parse_check_string_part2(argv, argc, number);
+	free(number);
+	return (i);
 }

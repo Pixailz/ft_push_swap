@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 23:57:29 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/05/25 23:03:29 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/05/26 03:45:01 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	main(int argc, char **argv)
 {
-	t_stack	*s;
+	t_stack		*s;
 
 	if (argc < 2)
 		ft_error("not enought args");

@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 22:56:09 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/05/25 23:08:27 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/05/26 03:23:44 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,5 @@ long int	ft_atol(const char *nptr)
 			neg = ~(neg - 1);
 	while (*ptr >= '0' && *ptr <= '9')
 		to_dec = (to_dec * 0xA) + (*ptr++ & 0xF);
-	if (neg == -1 && to_dec < -2147483648)
-		return (0);
-	if (neg && to_dec < -2147483648)
-		return (-1);
 	return (to_dec * neg);
 }

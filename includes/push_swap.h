@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 23:56:44 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/05/25 23:03:53 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/05/26 05:27:40 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,15 @@
 # include "ft_printf.h"
 # include "libft.h"
 # include "get_next_line.h"
-# include <limits.h>
+
+/* ########################################################################## */
+
+/* ########################################################################## */
+/* DEFINE */
+/* ####### */
+
+# define MAX_INT 2147483647
+# define MIN_INT -2147483648
 
 /* ########################################################################## */
 
@@ -48,9 +56,10 @@ t_stack	*parse_one_string(char *argv);
 t_stack	*parse(int argc, char **argv);
 
 // parse_check.c
-int	parse_check_string_part2(char **tmp_list, int number_arg, int *number);
-int	parse_check_one_string(char *argv);
-int	parse_check_multiple_string(char **argv, int argc);
+int		parse_check_is_str_numeric(const char *str);
+int		parse_check_string_part2(char **tmp_list, int number_arg, long int *number);
+int		parse_check_one_string(char *argv);
+int		parse_check_multiple_string(char **argv, int argc);
 
 // push_swap.c
 

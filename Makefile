@@ -51,8 +51,8 @@ GET_NEXT_LINE	:= $(LIB_DIR)/gnl/get_next_line.a
 # SRC
 SRC_C			:= src/parse.c \
 				   src/stack_utils.c \
-				   src/parse_check.c \
 				   src/push_swap.c \
+				   src/parse_check.c \
 				   src/stack_free.c
 
 # OBJ
