@@ -1,28 +1,28 @@
-#!/bin/sh
+#!/bin/bash
 
-MAKEFILE_PATH="lib/ft_printf/Makefile"
-SRC_DIR="lib/ft_printf/src"
+MAKEFILE_PATH="Makefile"
+SRC_DIR="src"
 
-insert_at_line()
+function insert_at_line()
 {
 	sed -i "${cursor}i ${1}" ${MAKEFILE_PATH}
 	let "cursor=cursor+1"
 }
 
-insert_at_line_with_tab()
+function insert_at_line_with_tab()
 {
 	sed -i "${cursor}i ${file}" ${MAKEFILE_PATH}
 	sed -i "s|^${file}|\t\t\t\t   ${file} \\\\|" ${MAKEFILE_PATH}
 	let "cursor=cursor+1"
 }
 
-append_to_variable_src()
+function append_to_variable_src()
 {
 	sed -i "s|SRC_C			:=|SRC_C			:= ${1} \\\\|" ${MAKEFILE_PATH}
 	is_first=1
 }
 
-clean_source_makefile()
+function clean_source_makefile()
 {
 	begin_src=$(grep -nE "^SRC_C\s*:=" ${MAKEFILE_PATH})
 	begin_src=${begin_src/:*/}
@@ -34,7 +34,7 @@ clean_source_makefile()
 	insert_at_line "SRC_C			:="
 }
 
-remove_last_backslash()
+function remove_last_backslash()
 {
 	let "cursor=cursor-1"
 	last_src_line=$(sed -n "${cursor}p" ${MAKEFILE_PATH})
@@ -44,7 +44,7 @@ remove_last_backslash()
 	sed -i "s|^${last_src_line}|\t\t\t\t   ${last_src_line}|" ${MAKEFILE_PATH}
 }
 
-main()
+function main()
 {
 	is_first=0
 	clean_source_makefile

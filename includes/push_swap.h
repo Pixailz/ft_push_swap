@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 23:56:44 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/05/26 05:27:40 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/05/26 22:18:26 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 # include "ft_printf.h"
 # include "libft.h"
-# include "get_next_line.h"
+# include <stdlib.h>
 
 /* ########################################################################## */
 
@@ -57,7 +57,8 @@ t_stack	*parse(int argc, char **argv);
 
 // parse_check.c
 int		parse_check_is_str_numeric(const char *str);
-int		parse_check_string_part2(char **tmp_list, int number_arg, long int *number);
+int		parse_check_string_part2(char **tmp_list, int number_arg, \
+															long int *number);
 int		parse_check_one_string(char *argv);
 int		parse_check_multiple_string(char **argv, int argc);
 

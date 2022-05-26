@@ -1,7 +1,7 @@
 #!/bin/sh
 
-SRC_DIR="lib/ft_printf/src"
-INC_DIR="lib/ft_printf/includes"
+SRC_DIR="src"
+INC_DIR="includes"
 
 print_function_should_be_static()
 {

@@ -1,20 +1,20 @@
-#!/bin/sh
+#!/bin/bash
 
 SRC_DIR="src"
 INC_DIR="includes"
 
-print_function_should_be_static()
+function print_function_should_be_static()
 {
 	echo "    ${func}:"
 	echo "        function should be static."
 }
 
-print_static_function_should_not_be_in_the_header()
+function print_static_function_should_not_be_in_the_header()
 {
 	echo "        function should not be in the header.h"
 }
 
-check_function_not_in_file()
+function check_function_not_in_file()
 {
 	for tmp_file in $(echo "${ALL_C_FILE}" | grep -v "${file}")
 	do
@@ -28,7 +28,7 @@ check_function_not_in_file()
 	return 0;
 }
 
-check_function_not_in_header()
+function check_function_not_in_header()
 {
 	header=$(sed -nE 's|#include "(.*)"|\1|p' ${file})
 	is_in_header=$(grep -nE "^[a-zA-Z\_]+\s*\**?${func}\(" ${INC_DIR}/${header})
@@ -46,7 +46,7 @@ check_function_not_in_header()
 	fi
 }
 
-get_function_in_file()
+function get_function_in_file()
 {
 	tmp_func=$(sed -nE 's|^[a-zA-Z\_]+\s(\**?[a-z][a-zA-Z\_]*)\(.*|\1|p' ${1} | \
 			   grep -vE '^static')

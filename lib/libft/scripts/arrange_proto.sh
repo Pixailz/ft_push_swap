@@ -1,7 +1,7 @@
-#!/bin/sh
+#!/bin/bash
 
-SRC_DIR="lib/libft/src"
-INC_FILE="lib/libft/includes/libft.h"
+SRC_DIR="src"
+INC_FILE=includes/libft.h
 
 while [ "$1" != "" ]
 do
@@ -13,13 +13,13 @@ do
 	shift
 done
 
-insert_at_line()
+function insert_at_line()
 {
 	sed -i "${cursor}i ${1}" ${INC_FILE}
 	let "cursor=cursor+1"
 }
 
-clear_header()
+function clear_header()
 {
 	begin=$(grep -n '/\* FILES \*/' ${INC_FILE})
 	cursor=${begin/:*/}
@@ -30,10 +30,10 @@ clear_header()
 	insert_at_line '\\'
 }
 
-get_function_in_file()
+function get_function_in_file()
 {
 	tmp_func=$(sed -nE 's|^[a-z0-9A-Z\_]+\s(\**?[a-z0-9A-Z\_]*)\(.*|\1|p' ${1} | \
-			   grep -vE '^static' | grep -vE 'main')
+			   grep -vE '^static')
 	insert_at_line "// ${file/*\//}"
 	for func in ${tmp_func}
 	do
@@ -43,7 +43,7 @@ get_function_in_file()
 	insert_at_line '\\'
 }
 
-main ()
+function main ()
 {
 	clear_header
 	ALL_C_FILE=$(find $(realpath ${SRC_DIR}) -name "*.c" | sort -n)

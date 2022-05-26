@@ -6,7 +6,7 @@
 #    By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/23 01:36:34 by brda-sil          #+#    #+#              #
-#    Updated: 2022/05/26 05:42:02 by brda-sil         ###   ########.fr        #
+#    Updated: 2022/05/26 21:46:42 by brda-sil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CFLAGS			:= -Wall -Wextra
 TARGET			:= libft.a
 RM				:= rm -rf
 CC				:= gcc
-VERSION			:= 1.0.2
+VERSION			:= 1.0.0
 
 ifneq ($(PADDING),30)
 PADDING			:= 30
@@ -25,7 +25,7 @@ endif
 ifeq ($(DEBUG),)
 CFLAGS			+= -Werror
 else
-CFLAGS			+= -g
+CFLAGS			+= -g3
 endif
 
 # DIR
@@ -87,6 +87,7 @@ SRC_C			:= src/ft_lstmap.c \
 				   src/ft_strlen.c \
 				   src/ft_strcspn.c \
 				   src/ft_isprint.c
+
 # OBJ
 OBJ_C			:= $(patsubst $(SRC_DIR)/%,$(OBJ_DIR)/%,$(SRC_C:%.c=%.o))
 
@@ -150,13 +151,15 @@ define print_padded
 endef
 
 define usage
-	@printf '$(orange_star) $(bold)$(TARGET)$(font_color): $(bold)needed_args '
-	@printf '$(font_color)[$(bold)optional_args$(font_color)]$(reset)\n'
-	@printf '        $(bold)arg$(font_color): eplanation\n'
-	@printf '        $(bold)arg$(font_color): eplanation\n'
-	@printf '        $(bold)arg$(font_color): eplanation, $(bold)WARNING$(reset)\n'
-	@printf '$(font_color)Version: $(bold)$(VERSION)$(reset)\n'
+$(orange_star) $(bold)$(TARGET)$(font_color): $(bold)needed_args \
+$(font_color)[$(bold)optional_args$(font_color)]$(reset)
+        $(bold)arg$(font_color): eplanation
+        $(bold)arg$(font_color): eplanation
+        $(bold)arg$(font_color): eplanation, $(bold)WARNING$(reset)
+$(font_color)Version: $(bold)$(VERSION)$(reset)
+
 endef
+export usage
 # **************************************************************************** #
 
 # **************************************************************************** #
@@ -164,7 +167,7 @@ endef
 
 all:			setup $(TARGET)
 ifneq ($(MAIN),1)
-	$(call usage)
+	@printf "$$usage"
 endif
 
 $(OBJ_DIR)/%.o: 		$(SRC_DIR)/%.c

@@ -6,7 +6,7 @@
 #    By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/23 01:36:34 by brda-sil          #+#    #+#              #
-#    Updated: 2022/05/26 05:42:33 by brda-sil         ###   ########.fr        #
+#    Updated: 2022/05/26 21:46:21 by brda-sil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,7 +25,7 @@ endif
 ifeq ($(DEBUG),)
 CFLAGS			+= -Werror
 else
-CFLAGS			+= -g
+CFLAGS			+= -g3
 endif
 
 # DIR
@@ -110,13 +110,15 @@ define print_padded
 endef
 
 define usage
-	@printf '$(orange_star) $(bold)$(TARGET)$(font_color): $(bold)needed_args '
-	@printf '$(font_color)[$(bold)optional_args$(font_color)]$(reset)\n'
-	@printf '        $(bold)arg$(font_color): eplanation\n'
-	@printf '        $(bold)arg$(font_color): eplanation\n'
-	@printf '        $(bold)arg$(font_color): eplanation, $(bold)WARNING$(reset)\n'
-	@printf '$(font_color)Version: $(bold)$(VERSION)$(reset)\n'
+$(orange_star) $(bold)$(TARGET)$(font_color): $(bold)needed_args \
+$(font_color)[$(bold)optional_args$(font_color)]$(reset)
+        $(bold)arg$(font_color): eplanation
+        $(bold)arg$(font_color): eplanation
+        $(bold)arg$(font_color): eplanation, $(bold)WARNING$(reset)
+$(font_color)Version: $(bold)$(VERSION)$(reset)
+
 endef
+export usage
 # **************************************************************************** #
 
 # **************************************************************************** #
@@ -124,7 +126,7 @@ endef
 
 all:			setup $(TARGET)
 ifneq ($(MAIN),1)
-	$(call usage)
+	@printf "$$usage"
 endif
 
 $(OBJ_DIR)/%.o: 		$(SRC_DIR)/%.c

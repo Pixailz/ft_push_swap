@@ -6,7 +6,7 @@
 #    By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/23 01:36:34 by brda-sil          #+#    #+#              #
-#    Updated: 2022/05/25 22:23:21 by brda-sil         ###   ########.fr        #
+#    Updated: 2022/05/26 22:17:18 by brda-sil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ endif
 ifeq ($(DEBUG),)
 CFLAGS			+= -Werror
 else
-CFLAGS			+= -g
+CFLAGS			+= -g3
 endif
 
 # DIR
@@ -37,8 +37,7 @@ LIB_DIR			:= lib
 OBJ_DIR			:= obj
 INC_TMP			:= includes \
 				   $(LIB_DIR)/libft/includes \
-				   $(LIB_DIR)/ft_printf/includes \
-				   $(LIB_DIR)/gnl/includes
+				   $(LIB_DIR)/ft_printf/includes
 INC_DIR			:= $(addprefix -I,$(INC_TMP))
 
 TARGET			:= $(addprefix $(BIN_DIR)/,$(TARGET))
@@ -46,13 +45,12 @@ TARGET			:= $(addprefix $(BIN_DIR)/,$(TARGET))
 # LIB
 LIBFT			:= $(LIB_DIR)/libft/libft.a
 FT_PRINTF		:= $(LIB_DIR)/ft_printf/ft_printf.a
-GET_NEXT_LINE	:= $(LIB_DIR)/gnl/get_next_line.a
 
 # SRC
 SRC_C			:= src/parse.c \
 				   src/stack_utils.c \
-				   src/push_swap.c \
 				   src/parse_check.c \
+				   src/push_swap.c \
 				   src/stack_free.c
 
 # OBJ
@@ -60,7 +58,7 @@ OBJ_C			:= $(patsubst $(SRC_DIR)/%,$(OBJ_DIR)/%,$(SRC_C:%.c=%.o))
 
 # LIB DIR
 CFLAGS			+= $(INC_DIR)
-LIBS			:= $(FT_PRINTF) $(LIBFT) $(GET_NEXT_LINE)
+LIBS			:= $(FT_PRINTF) $(LIBFT)
 
 #  Bash Color / unicode char
 
@@ -98,12 +96,12 @@ LR="\xe2\x95\x9d"
 # utils
 
 define ascii_art
-██████╗ ██╗   ██╗███████╗██╗  ██╗    ██████╗ ███████╗    ██╗      █████╗     ███████╗██╗    ██╗ █████╗ ██████╗
-██╔══██╗██║   ██║██╔════╝██║  ██║    ██╔══██╗██╔════╝    ██║     ██╔══██╗    ██╔════╝██║    ██║██╔══██╗██╔══██╗
-██████╔╝██║   ██║███████╗███████║    ██║  ██║█████╗      ██║     ███████║    ███████╗██║ █╗ ██║███████║██████╔╝
-██╔═══╝ ██║   ██║╚════██║██╔══██║    ██║  ██║██╔══╝      ██║     ██╔══██║    ╚════██║██║███╗██║██╔══██║██╔═══╝
-██║     ╚██████╔╝███████║██║  ██║    ██████╔╝███████╗    ███████╗██║  ██║    ███████║╚███╔███╔╝██║  ██║██║
-╚═╝      ╚═════╝ ╚══════╝╚═╝  ╚═╝    ╚═════╝ ╚══════╝    ╚══════╝╚═╝  ╚═╝    ╚══════╝ ╚══╝╚══╝ ╚═╝  ╚═╝╚═╝
+ ██╗ ██╗   ██╗ ██████╗  ██╗ ██████╗  ██╗
+██╔╝ ██║   ██║██╔═══██╗ ██║ ██╔══██╗ ╚██╗
+██║  ██║   ██║██║   ██║ ██║ ██║  ██║  ██║
+██║  ╚██╗ ██╔╝██║   ██║ ██║ ██║  ██║  ██║
+╚██╗  ╚████╔╝ ╚██████╔╝ ██║ ██████╔╝ ██╔╝
+ ╚═╝   ╚═══╝   ╚═════╝  ╚═╝ ╚═════╝  ╚═╝
 $(reset)
 endef
 export ascii_art
@@ -120,21 +118,22 @@ define print_padded
 endef
 
 define usage
-	@printf '$(orange_star) $(bold)$(TARGET)$(font_color): $(bold)needed_args '
-	@printf '$(font_color)[$(bold)optional_args$(font_color)]$(reset)\n'
-	@printf '        $(bold)arg$(font_color): eplanation\n'
-	@printf '        $(bold)arg$(font_color): eplanation\n'
-	@printf '        $(bold)arg$(font_color): eplanation, $(bold)WARNING$(reset)\n'
-	@printf '$(font_color)Version: $(bold)$(VERSION)$(reset)\n'
+$(orange_star) $(bold)$(TARGET)$(font_color): $(bold)needed_args \
+$(font_color)[$(bold)optional_args$(font_color)]$(reset)
+        $(bold)arg$(font_color): eplanation
+        $(bold)arg$(font_color): eplanation
+        $(bold)arg$(font_color): eplanation, $(bold)WARNING$(reset)
+$(font_color)Version: $(bold)$(VERSION)$(reset)
 
 endef
+export usage
 # **************************************************************************** #
 
 # **************************************************************************** #
 # Rules
 
 all:			setup $(TARGET)
-	$(call usage)
+	@printf "$$usage"
 
 $(OBJ_DIR)/%.o: 		$(SRC_DIR)/%.c
 	$(call print_padded,$^,$@)
@@ -146,12 +145,9 @@ $(LIBFT):
 $(FT_PRINTF):
 	@$(MAKE) lib/ft_printf all
 
-$(GET_NEXT_LINE):
-	@$(MAKE) lib/gnl all
-
-$(TARGET):				$(LIBFT) $(FT_PRINTF) $(GET_NEXT_LINE) $(MINI_LIBX) $(OBJ_C)
+$(TARGET):				$(LIBFT) $(FT_PRINTF)  $(OBJ_C)
 	@printf "$(green_plus) $(font_color)Creation of $(bold)$@$(reset)\n"
-	@$(CC) $(CFLAGS) -o $@ $(OBJ_C) $(LIBS)
+	@$(CC) $(CFLAGS) -o $@ $(OBJ_C) $(LIBS) $(LDFLAGS)
 
 setup:					call_logo $(OBJ_DIR) $(BIN_DIR)
 
@@ -169,7 +165,6 @@ $(BIN_DIR):
 clean_all:				clean
 	@$(MAKE) lib/libft clean
 	@$(MAKE) lib/ft_printf clean
-	@$(MAKE) lib/gnl clean
 
 clean:
 	@printf "$(red_minus) $(font_color)Deleting $(bold)$(OBJ_DIR)$(reset)\n"
@@ -178,7 +173,6 @@ clean:
 fclean_all:				fclean
 	@$(MAKE) lib/libft fclean
 	@$(MAKE) lib/ft_printf fclean
-	@$(MAKE) lib/gnl fclean
 
 fclean:					clean
 	@printf "$(red_minus) $(font_color)Deleting $(bold)$(TARGET)$(reset)\n"
@@ -189,7 +183,6 @@ fclean:					clean
 re_lib:
 	@$(MAKE) lib/libft re
 	@$(MAKE) lib/ft_printf re
-	@$(MAKE) lib/gnl re
 
 re:						fclean all
 

@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 12:53:46 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/05/26 05:38:54 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/05/26 14:18:35 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,9 @@
 // ft_checkparams.c
 int	ft_checkparams(char c);
 
+// ft_error.c
+int	ft_error(char *msg);
+
 // ft_parse.c
 int	ft_parse(va_list args, const char *format);
 
@@ -55,23 +58,20 @@ int	ft_putchar(char c);
 // ft_puthex.c
 int	ft_puthex(unsigned long n, char format);
 
-// ft_putnbr_u.c
-int	ft_putnbr_u(unsigned int n);
-
 // ft_putnbr.c
 int	ft_putnbr(int n);
+
+// ft_putnbr_u.c
+int	ft_putnbr_u(unsigned int n);
 
 // ft_putstr.c
 int	ft_putstr(char *s);
 
-// ft_set_params.c
+// ft_sel_params.c
 int	ft_sel_params(va_list args, char param_type);
 
 // ft_strlenn.c
 int	ft_strlenn(char *s);
-
-// ft_error.c
-int	ft_error(char *msg);
 
 /* ########################################################################## */
 
