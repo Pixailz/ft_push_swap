@@ -1,7 +1,7 @@
 #!/bin/sh
 
-SRC_DIR="src"
-INC_FILE="includes/ft_printf.h"
+SRC_DIR="lib/libft/src"
+INC_FILE="lib/libft/includes/libft.h"
 
 while [ "$1" != "" ]
 do

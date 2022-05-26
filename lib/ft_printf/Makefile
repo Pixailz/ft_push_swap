@@ -6,7 +6,7 @@
 #    By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/23 01:36:34 by brda-sil          #+#    #+#              #
-#    Updated: 2022/05/16 06:22:49 by brda-sil         ###   ########.fr        #
+#    Updated: 2022/05/26 05:42:33 by brda-sil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,18 @@ OBJ_DIR			:= obj
 INC_DIR			:= includes
 
 # SRC
-SRC_C			:= $(wildcard $(SRC_DIR)/*.c)
+SRC_C			:= src/ft_putnbr_u.c \
+				   src/ft_put_addr.c \
+				   src/ft_parse.c \
+				   src/ft_sel_params.c \
+				   src/ft_printf.c \
+				   src/ft_putstr.c \
+				   src/ft_putnbr.c \
+				   src/ft_puthex.c \
+				   src/ft_putchar.c \
+				   src/ft_strlenn.c \
+				   src/ft_checkparams.c \
+				   src/ft_error.c
 
 # OBJ
 OBJ_C			:= $(patsubst $(SRC_DIR)/%,$(OBJ_DIR)/%,$(SRC_C:%.c=%.o))

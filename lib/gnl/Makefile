@@ -6,7 +6,7 @@
 #    By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/23 01:36:34 by brda-sil          #+#    #+#              #
-#    Updated: 2022/05/16 06:24:35 by brda-sil         ###   ########.fr        #
+#    Updated: 2022/05/26 05:42:19 by brda-sil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,7 +34,8 @@ OBJ_DIR			:= obj
 INC_DIR			:= includes
 
 # SRC
-SRC_C			:= $(wildcard $(SRC_DIR)/*.c)
+SRC_C			:= src/get_next_line_utils.c \
+				   src/get_next_line.c
 
 # OBJ
 OBJ_C			:= $(patsubst $(SRC_DIR)/%,$(OBJ_DIR)/%,$(SRC_C:%.c=%.o))

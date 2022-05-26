@@ -1,7 +1,7 @@
 #!/bin/sh
 
-SRC_DIR="src"
-INC_FILE="includes/ft_printf.h"
+SRC_DIR="lib/gnl/src"
+INC_FILE="lib/gnl/includes/get_next_line.h"
 
 while [ "$1" != "" ]
 do
