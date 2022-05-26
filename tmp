@@ -1,0 +1,84 @@
++ SRC_DIR=src
++ INC_FILE=includes/push_swap.h
++ '[' '' '!=' '' ']'
++ main
++ clear_header
+++ grep -n '/\* FILES \*/' includes/push_swap.h
++ begin='41:/* FILES */'
+++ cut -d: -f1
+++ echo '41:/*' FILES bin/ includes/ lib/ obj/ scripts/ src/
++ cursor=41
++ sed -i '/\/\* FILES \*\//,/\/\* ############*/d' includes/push_swap.h
++ insert_at_line '/* FILES */'
++ sed -i '41i /* FILES */' includes/push_swap.h
++ let cursor=cursor+1
++ insert_at_line '/* ##### */'
++ sed -i '42i /* ##### */' includes/push_swap.h
++ let cursor=cursor+1
++ insert_at_line '\\'
++ sed -i '43i \\' includes/push_swap.h
++ let cursor=cursor+1
+++ sort -n
++++ realpath src
+++ find /nfs/homes/brda-sil/Documents/PushSwap/push_swap/src -name '*.c'
++ ALL_C_FILE='/nfs/homes/brda-sil/Documents/PushSwap/push_swap/src/push_swap.c
+/nfs/homes/brda-sil/Documents/PushSwap/push_swap/src/stack_utils.c'
++ for file in ${ALL_C_FILE}
++ get_function_in_file /nfs/homes/brda-sil/Documents/PushSwap/push_swap/src/push_swap.c
+++ sed -nE 's|^[a-z0-9A-Z\_]+\s(\**?[a-z0-9A-Z\_]*)\(.*|\1|p' /nfs/homes/brda-sil/Documents/PushSwap/push_swap/src/push_swap.c
+++ grep -vE '^static'
+++ grep -vE main
++ tmp_func=
++ insert_at_line '// push_swap.c'
++ sed -i '44i // push_swap.c' includes/push_swap.h
++ let cursor=cursor+1
++ insert_at_line '\\'
++ sed -i '45i \\' includes/push_swap.h
++ let cursor=cursor+1
++ for file in ${ALL_C_FILE}
++ get_function_in_file /nfs/homes/brda-sil/Documents/PushSwap/push_swap/src/stack_utils.c
+++ sed -nE 's|^[a-z0-9A-Z\_]+\s(\**?[a-z0-9A-Z\_]*)\(.*|\1|p' /nfs/homes/brda-sil/Documents/PushSwap/push_swap/src/stack_utils.c
+++ grep -vE '^static'
+++ grep -vE main
++ tmp_func='*stack_new
+stack_push_font
+stack_push_font'
++ insert_at_line '// stack_utils.c'
++ sed -i '46i // stack_utils.c' includes/push_swap.h
++ let cursor=cursor+1
++ for func in ${tmp_func}
+++ sed 's|\*|\\\*|'
+++ echo '*stack_new'
++ tmp1000='\*stack_new'
+++ grep -E '^[a-z0-9A-Z\_]+\s\*stack_new\(.*\)$' /nfs/homes/brda-sil/Documents/PushSwap/push_swap/src/stack_utils.c
++ insert_at_line 't_stack	*stack_new(int content, int index);'
++ sed -i '47i t_stack	*stack_new(int content, int index);' includes/push_swap.h
++ let cursor=cursor+1
++ for func in ${tmp_func}
+++ echo stack_push_font
+++ sed 's|\*|\\\*|'
++ tmp1000=stack_push_font
+++ grep -E '^[a-z0-9A-Z\_]+\sstack_push_font\(.*\)$' /nfs/homes/brda-sil/Documents/PushSwap/push_swap/src/stack_utils.c
++ insert_at_line 'void	stack_push_font(t_stack *s, int value)
+void	stack_push_font(t_stack *s, int value);'
++ sed -i '48i void	stack_push_font(t_stack *s, int value)
+void	stack_push_font(t_stack *s, int value);' includes/push_swap.h
+sed: -e expression #1, char 52: expected newer version of sed
++ let cursor=cursor+1
++ for func in ${tmp_func}
+++ echo stack_push_font
+++ sed 's|\*|\\\*|'
++ tmp1000=stack_push_font
+++ grep -E '^[a-z0-9A-Z\_]+\sstack_push_font\(.*\)$' /nfs/homes/brda-sil/Documents/PushSwap/push_swap/src/stack_utils.c
++ insert_at_line 'void	stack_push_font(t_stack *s, int value)
+void	stack_push_font(t_stack *s, int value);'
++ sed -i '49i void	stack_push_font(t_stack *s, int value)
+void	stack_push_font(t_stack *s, int value);' includes/push_swap.h
+sed: -e expression #1, char 52: expected newer version of sed
++ let cursor=cursor+1
++ insert_at_line '\\'
++ sed -i '50i \\' includes/push_swap.h
++ let cursor=cursor+1
++ insert_at_line '/* ########################################################################## */'
++ sed -i '51i /* ########################################################################## */' includes/push_swap.h
++ let cursor=cursor+1

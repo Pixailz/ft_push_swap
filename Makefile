@@ -6,7 +6,7 @@
 #    By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/23 01:36:34 by brda-sil          #+#    #+#              #
-#    Updated: 2022/05/24 02:23:26 by brda-sil         ###   ########.fr        #
+#    Updated: 2022/05/25 22:23:21 by brda-sil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,8 +49,11 @@ FT_PRINTF		:= $(LIB_DIR)/ft_printf/ft_printf.a
 GET_NEXT_LINE	:= $(LIB_DIR)/gnl/get_next_line.a
 
 # SRC
-SRC_C			:= src/algo_ra.c \
-				   src/push_swap.c
+SRC_C			:= src/parse.c \
+				   src/stack_utils.c \
+				   src/parse_check.c \
+				   src/push_swap.c \
+				   src/stack_free.c
 
 # OBJ
 OBJ_C			:= $(patsubst $(SRC_DIR)/%,$(OBJ_DIR)/%,$(SRC_C:%.c=%.o))
@@ -166,7 +169,6 @@ $(BIN_DIR):
 clean_all:				clean
 	@$(MAKE) lib/libft clean
 	@$(MAKE) lib/ft_printf clean
-	@$(MAKE) lib/minilibx-linux clean
 	@$(MAKE) lib/gnl clean
 
 clean:
@@ -176,7 +178,6 @@ clean:
 fclean_all:				fclean
 	@$(MAKE) lib/libft fclean
 	@$(MAKE) lib/ft_printf fclean
-	@$(MAKE) lib/minilibx-linux clean
 	@$(MAKE) lib/gnl fclean
 
 fclean:					clean
@@ -188,7 +189,6 @@ fclean:					clean
 re_lib:
 	@$(MAKE) lib/libft re
 	@$(MAKE) lib/ft_printf re
-	@$(MAKE) lib/minilibx-linux re
 	@$(MAKE) lib/gnl re
 
 re:						fclean all

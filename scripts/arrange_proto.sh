@@ -33,7 +33,7 @@ clear_header()
 get_function_in_file()
 {
 	tmp_func=$(sed -nE 's|^[a-z0-9A-Z\_]+\s(\**?[a-z0-9A-Z\_]*)\(.*|\1|p' ${1} | \
-			   grep -vE '^static')
+			   grep -vE '^static' | grep -vE 'main')
 	insert_at_line "// ${file/*\//}"
 	for func in ${tmp_func}
 	do

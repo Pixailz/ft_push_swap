@@ -5,12 +5,12 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/12 00:58:51 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/05/14 06:31:37 by brda-sil         ###   ########.fr       */
+/*   Created: 2022/05/25 22:25:01 by brda-sil          #+#    #+#             */
+/*   Updated: 2022/05/25 22:25:49 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../ft_printf/includes/ft_printf.h"
+#include "ft_printf.h"
 #include <stdlib.h>
 
 int	ft_error(char *msg)

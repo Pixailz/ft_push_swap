@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/16 12:53:46 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/05/16 04:09:48 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/05/25 22:24:36 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,6 +69,9 @@ int	ft_sel_params(va_list args, char param_type);
 
 // ft_strlenn.c
 int	ft_strlenn(char *s);
+
+// ft_error.c
+int	ft_error(char *msg);
 
 /* ########################################################################## */
 

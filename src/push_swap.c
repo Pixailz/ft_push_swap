@@ -6,28 +6,45 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 23:57:29 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/05/24 14:33:47 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/05/25 23:03:29 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char *argv[])
+int	main(int argc, char **argv)
 {
-	t_list	*test1;
-	t_list	**tmp;
-	int		i;
+	t_stack	*s;
 
 	if (argc < 2)
-		return (-1);
-	test1 = ft_lstnew(argv[1]);
-	i = 0;
-	while (i < argc - 1)
-	{
-		tmp = &test1->next;
-		(*tmp)->next = ft_lstnew(argv[i++ + 1]);
-	}
-	ft_printf("test1[0]: %s\n", test1->content);
-	ft_printf("test1[1]: %s\n", test1->next->content);
+		ft_error("not enought args");
+	s = parse(argc, argv);
+	stack_free(s);
 	return (0);
 }
+
+/*
+push_swap 1 2 3
+
+list->value = 1
+list->next->value = 2
+list->next->next->value = 3
+*/
+
+/*
+int	main(void)
+{
+	t_stack	*list;
+
+	list = stack_new(0, 0);
+	stack_push_top(list, 2);
+	stack_push_top(list, 4);
+	stack_push_top(list, 6);
+	stack_push_top(list, 8);
+	list = stack_push_bottom(list, -8);
+	ft_printf("test[%d]: %d\n", list->index, list->value);
+	ft_printf("test[%d]: %d\n", list->next->prev->index, \
+								list->next->prev->value);
+	stack_free(list);
+}
+*/
