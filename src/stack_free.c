@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 13:34:06 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/05/26 04:15:26 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/05/26 23:34:03 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,4 +23,11 @@ void	stack_free(t_stack *s)
 		s = tmp;
 	}
 	free(s);
+}
+
+void	free_entry_point(t_push_swap *ps)
+{
+	stack_free(ps->a);
+	if (ps->b)
+		stack_free(ps->b);
 }
