@@ -6,7 +6,7 @@
 #    By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/23 01:36:34 by brda-sil          #+#    #+#              #
-#    Updated: 2022/05/25 23:01:38 by brda-sil         ###   ########.fr        #
+#    Updated: 2022/05/26 05:29:19 by brda-sil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CFLAGS			:= -Wall -Wextra
 TARGET			:= libft.a
 RM				:= rm -rf
 CC				:= gcc
-VERSION			:= 1.0.0
+VERSION			:= 1.0.2
 
 ifneq ($(PADDING),30)
 PADDING			:= 30
