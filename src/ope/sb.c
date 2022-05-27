@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 01:08:49 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/05/27 03:44:49 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/05/27 17:16:20 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,7 @@ void	sb(t_push_swap *ps)
 		tmp2 = tmp1;
 		tmp1 = tmp1->next;
 	}
-	tmp2->prev->next = tmp1;
-	tmp1->prev = tmp2->prev;
-	tmp1->next = tmp2;
-	tmp2->next = NULL;
-	tmp2->prev = tmp1->prev->next;
-	stack_arrange_index(ps->b);
+	tmp2->value ^= tmp1->value;
+	tmp1->value ^= tmp2->value;
+	tmp2->value ^= tmp1->value;
 }
