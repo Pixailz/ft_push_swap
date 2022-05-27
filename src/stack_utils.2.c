@@ -1,33 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_free.c                                       :+:      :+:    :+:   */
+/*   stack_utils.2.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/25 13:34:06 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/05/27 02:17:13 by brda-sil         ###   ########.fr       */
+/*   Created: 2022/05/24 18:20:40 by brda-sil          #+#    #+#             */
+/*   Updated: 2022/05/27 03:44:22 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	stack_free(t_stack *s)
+void	stack_view(t_stack *s)
 {
 	t_stack	*tmp;
 
-	while (s->next)
+	tmp = s;
+	while (tmp)
 	{
-		tmp = s->next;
-		free(s);
-		s = tmp;
+		ft_printf("s[%d] -> %d\n", tmp->index, tmp->value);
+		tmp = tmp->next;
 	}
-	free(s);
-}
-
-void	free_entry_point(t_push_swap *ps)
-{
-	stack_free(ps->a);
-//	if (ps->b)
-//		stack_free(ps->b);
+	ft_putchar('\n');
 }

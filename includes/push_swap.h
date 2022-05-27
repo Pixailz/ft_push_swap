@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 23:56:44 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/05/27 01:25:30 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/05/27 03:48:24 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,11 +108,15 @@ int		main(int argc, char **argv);
 void	stack_free(t_stack *s);
 void	free_entry_point(t_push_swap *ps);
 
+// stack_utils.2.c
+void	stack_view(t_stack *s);
+
 // stack_utils.c
 t_stack	*stack_new(int content, int index);
 void	stack_push_top(t_stack *s, int value);
 void	stack_arrange_index(t_stack *s);
 t_stack	*stack_push_bottom(t_stack *s, int value);
+int		stack_get_size(t_stack *s);
 
 /* ########################################################################## */
 

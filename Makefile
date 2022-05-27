@@ -54,6 +54,7 @@ SRC_C			:= src/parse.c \
 				   src/parse_check.c \
 				   src/push_swap.c \
 				   src/stack_free.c \
+				   src/stack_utils.2.c \
 				   src/ope/ss.c \
 				   src/ope/rra.c \
 				   src/ope/pb.c \

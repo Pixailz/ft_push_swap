@@ -1,33 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_free.c                                       :+:      :+:    :+:   */
+/*   sb.c                                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/25 13:34:06 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/05/27 02:17:13 by brda-sil         ###   ########.fr       */
+/*   Created: 2022/05/27 01:08:49 by brda-sil          #+#    #+#             */
+/*   Updated: 2022/05/27 03:44:49 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	stack_free(t_stack *s)
+void	sb(t_push_swap *ps)
 {
-	t_stack	*tmp;
+	t_stack	*tmp1;
+	t_stack	*tmp2;
 
-	while (s->next)
+	if (stack_get_size(ps->b) < 2)
+		return ;
+	tmp1 = ps->b;
+	while (tmp1->next)
 	{
-		tmp = s->next;
-		free(s);
-		s = tmp;
+		tmp2 = tmp1;
+		tmp1 = tmp1->next;
 	}
-	free(s);
-}
-
-void	free_entry_point(t_push_swap *ps)
-{
-	stack_free(ps->a);
-//	if (ps->b)
-//		stack_free(ps->b);
+	tmp2->prev->next = tmp1;
+	tmp1->prev = tmp2->prev;
+	tmp1->next = tmp2;
+	tmp2->next = NULL;
+	tmp2->prev = tmp1->prev->next;
+	stack_arrange_index(ps->b);
 }
