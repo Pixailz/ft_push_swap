@@ -1,7 +1,7 @@
 #!/bin/bash
 
 SRC_DIR="src"
-INC_FILE="includes/blank.h"
+INC_FILE="includes/push_swap.h"
 
 while [ "$1" != "" ]
 do
@@ -34,7 +34,8 @@ function get_function_in_file()
 {
 	tmp_func=$(sed -nE 's|^[a-z0-9A-Z\_]+\s(\**?[a-z0-9A-Z\_]*)\(.*|\1|p' ${1} | \
 			   grep -vE '^static')
-	insert_at_line "// ${file/*\//}"
+	tmp_file=$(echo ${file/*src\//})
+	insert_at_line "// ${tmp_file}"
 	for func in ${tmp_func}
 	do
 		tmp1000=$(echo ${func} | sed 's|\*|\\\*|')

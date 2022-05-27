@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 23:56:44 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/05/26 22:28:10 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/05/27 01:25:30 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,39 @@ typedef struct s_push_swap
 /* FILES */
 /* ##### */
 
+// ope/pa.c
+void	pa(t_push_swap *ps);
+
+// ope/pb.c
+void	pb(t_push_swap *ps);
+
+// ope/ra.c
+void	ra(t_push_swap *ps);
+
+// ope/rb.c
+void	rb(t_push_swap *ps);
+
+// ope/rra.c
+void	rra(t_push_swap *ps);
+
+// ope/rrb.c
+void	rrb(t_push_swap *ps);
+
+// ope/rr.c
+void	rr(t_push_swap *ps);
+
+// ope/rrr.c
+void	rrr(t_push_swap *ps);
+
+// ope/sa.c
+void	sa(t_push_swap *ps);
+
+// ope/sb.c
+void	sb(t_push_swap *ps);
+
+// ope/ss.c
+void	ss(t_push_swap *ps);
+
 // parse.c
 t_stack	*parse_multiple_string(char **argv, int argc);
 t_stack	*parse_one_string(char *argv);
@@ -69,9 +102,11 @@ int		parse_check_one_string(char *argv);
 int		parse_check_multiple_string(char **argv, int argc);
 
 // push_swap.c
+int		main(int argc, char **argv);
 
 // stack_free.c
 void	stack_free(t_stack *s);
+void	free_entry_point(t_push_swap *ps);
 
 // stack_utils.c
 t_stack	*stack_new(int content, int index);

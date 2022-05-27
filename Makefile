@@ -6,7 +6,7 @@
 #    By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/23 01:36:34 by brda-sil          #+#    #+#              #
-#    Updated: 2022/05/26 22:22:54 by brda-sil         ###   ########.fr        #
+#    Updated: 2022/05/27 01:01:52 by brda-sil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,6 +35,8 @@ BIN_DIR			:= bin
 SRC_DIR			:= src
 LIB_DIR			:= lib
 OBJ_DIR			:= obj
+OBJ_SUBDIR		:= $(sort $(shell find $(SRC_DIR) -type d | \
+											sed 's|$(SRC_DIR)|$(OBJ_DIR)|g'))
 INC_TMP			:= includes \
 				   $(LIB_DIR)/libft/includes \
 				   $(LIB_DIR)/ft_printf/includes
@@ -51,7 +53,18 @@ SRC_C			:= src/parse.c \
 				   src/stack_utils.c \
 				   src/parse_check.c \
 				   src/push_swap.c \
-				   src/stack_free.c
+				   src/stack_free.c \
+				   src/ope/ss.c \
+				   src/ope/rra.c \
+				   src/ope/pb.c \
+				   src/ope/pa.c \
+				   src/ope/sb.c \
+				   src/ope/ra.c \
+				   src/ope/rrr.c \
+				   src/ope/sa.c \
+				   src/ope/rr.c \
+				   src/ope/rrb.c \
+				   src/ope/rb.c
 
 # OBJ
 OBJ_C			:= $(patsubst $(SRC_DIR)/%,$(OBJ_DIR)/%,$(SRC_C:%.c=%.o))
@@ -106,8 +119,6 @@ $(reset)
 endef
 export ascii_art
 
-get_length_str = $(shell )
-
 define print_padded
 	@printf '   $(orange_star) $(font_color)Creation of $(bold)$1'
 	$(eval OBJ_LEN := $(shell printf $1 | wc -c))
@@ -127,6 +138,13 @@ $(font_color)Version: $(bold)$(VERSION)$(reset)
 
 endef
 export usage
+
+define make_dir
+	@if [ ! -d $1 ]; then														\
+		mkdir $1;																\
+		printf "$(green_plus) $(font_color)Create dir $(bold)$1$(reset)\n";		\
+	fi
+endef
 # **************************************************************************** #
 
 # **************************************************************************** #
@@ -149,17 +167,16 @@ $(TARGET):				$(LIBFT) $(FT_PRINTF)  $(OBJ_C)
 	@printf "$(green_plus) $(font_color)Creation of $(bold)$@$(reset)\n"
 	@$(CC) $(CFLAGS) -o $@ $(OBJ_C) $(LIBS) $(LDFLAGS)
 
-setup:					call_logo $(OBJ_DIR) $(BIN_DIR)
+setup:					call_logo $(OBJ_SUBDIR) $(BIN_DIR)
 
 call_logo:
 	@printf "$(ascii_color)$$ascii_art"
 
-$(OBJ_DIR):
-	@printf "$(green_plus) $(font_color)Creation of $(bold)$(OBJ_DIR)$(reset)\n"
-	@mkdir -p $(OBJ_DIR)
+$(OBJ_SUBDIR):
+	$(foreach dir,$@,$(call make_dir,$(dir)))
 
 $(BIN_DIR):
-	@printf "$(green_plus) $(font_color)Creation of $(bold)$(BIN_DIR)$(reset)\n"
+	@printf "$(green_plus) $(font_color)Create dir $(bold)$(BIN_DIR)$(reset)\n"
 	@mkdir -p $(BIN_DIR)
 
 clean_all:				clean
