@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 13:34:06 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/05/27 03:49:45 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/05/28 14:19:35 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,6 @@ void	stack_free(t_stack *s)
 void	free_entry_point(t_push_swap *ps)
 {
 	stack_free(ps->a);
-	if (ps->b)
+	if (!ps->is_stack_b_empty)
 		stack_free(ps->b);
 }

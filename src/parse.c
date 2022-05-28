@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 16:58:39 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/05/26 23:25:47 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/05/28 14:40:39 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,7 @@ t_stack	*parse(int argc, char **argv)
 	{
 		tmp = ft_strdup(argv[1]);
 		if (!parse_check_one_string(tmp))
-		{
-			free(tmp);
 			ft_error("have same number in a single string");
-		}
-		free(tmp);
 		s = parse_one_string(argv[1]);
 	}
 	else

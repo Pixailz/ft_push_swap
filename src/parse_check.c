@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 17:22:09 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/05/26 05:21:38 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/05/28 14:39:32 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	parse_check_is_str_numeric(const char *str)
 	}
 	while (*tmp)
 	{
-		if (*tmp < '0' && *tmp > '9')
+		if (*tmp < '0' || *tmp > '9')
 			is_numeric = 0;
 		tmp++;
 	}
@@ -98,6 +98,7 @@ int	parse_check_one_string(char *argv)
 	if (!number)
 		return (0);
 	tmp_list = ft_split(argv, ' ');
+	free(argv);
 	i = parse_check_string_part2(tmp_list, number_arg, number);
 	free(number);
 	ft_split_free(tmp_list);

@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 18:20:40 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/05/27 18:00:55 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/05/28 14:53:37 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,4 +36,14 @@ void	stack_pop_top(t_stack *s)
 	}
 	tmp->prev->next = NULL;
 	free(tmp);
+}
+
+int	stack_get_value_at_index(t_stack *s, int index)
+{
+	t_stack	*tmp;
+
+	tmp = s;
+	while (tmp->next && tmp->index != index)
+		tmp = tmp->next;
+	return (tmp->value);
 }
