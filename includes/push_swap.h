@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 23:56:44 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/05/29 21:46:56 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/05/30 01:50:21 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,19 +86,19 @@ void		pb(t_push_swap *ps);
 void		post_pb(t_push_swap *ps);
 
 // ope/ra.c
-void		ra(t_push_swap *ps, int is_rr);
+void		ra(t_push_swap *ps, int is_rrr);
 void		post_ra(t_push_swap *ps);
 
 // ope/rb.c
-void		rb(t_push_swap *ps, int is_rr);
+void		rb(t_push_swap *ps, int is_rrr);
 void		post_rb(t_push_swap *ps);
 
 // ope/rra.c
-void		rra(t_push_swap *ps, int is_rrr);
+void		rra(t_push_swap *ps, int is_rr);
 void		post_rra(t_push_swap *ps);
 
 // ope/rrb.c
-void		rrb(t_push_swap *ps, int is_rrr);
+void		rrb(t_push_swap *ps, int is_rr);
 void		post_rrb(t_push_swap *ps);
 
 // ope/rr.c
@@ -125,18 +125,18 @@ t_stack		*parse(int argc, char **argv);
 
 // parsing/parse_check.2.c
 int			parse_check_one_string_part2(char **tmp_list, int number_arg, \
-															long int *number);
+long int *number);
 int			parse_check_multiple_string_part2(char **tmp_list, int number_arg, \
-															long int *number);
+long int *number);
 
 // parsing/parse_check.c
 int			parse_check_is_str_numeric(const char *str);
+long int	parse_check_one_is_good_number(char **tmp_list, int i, \
+long int *number);
+long int	parse_check_multiple_is_good_number(char **tmp_list, int i, \
+long int *number);
 int			parse_check_one_string(char *argv);
 int			parse_check_multiple_string(char **argv, int argc);
-long int	parse_check_one_is_good_number(char **tmp_list, int i, \
-															long int *number);
-long int	parse_check_multiple_is_good_number(char **tmp_list, int i, \
-															long int *number);
 
 // push_swap.c
 int			main(int argc, char **argv);
