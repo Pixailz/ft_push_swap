@@ -2,4 +2,4 @@
 
 ## TODO
 
-1. the whole skeleton of the project
+1. fix algo_5 "1 3 4 2"
