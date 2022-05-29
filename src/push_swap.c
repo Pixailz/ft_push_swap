@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 23:57:29 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/05/28 14:55:05 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/05/29 17:51:33 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,13 @@ int	main(int argc, char **argv)
 	if (argc < 2)
 		ft_error("not enought args");
 	ps.a = parse(argc, argv);
+	ps.is_stack_a_empty = 0;
 	ps.is_stack_b_empty = 1;
-	ps.b = stack_new(100, 0);
-	ps.is_stack_b_empty = 0;
-	stack_push_top(ps.b, 101);
-	stack_push_top(ps.b, 102);
-	ft_printf("value on b at index 1: %d\n", stack_get_value_at_index(ps.b, 1));
+	if (DEBUG)
+		stack_view(&ps);
+	algo_5(&ps);
+	if (DEBUG)
+		stack_view(&ps);
 	free_entry_point(&ps);
 	return (0);
 }

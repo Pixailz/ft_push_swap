@@ -1,30 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rrb.c                                              :+:      :+:    :+:   */
+/*   rrrb.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 01:08:49 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/05/27 17:50:11 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/05/29 17:05:20 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rrb(t_push_swap *ps)
+void	rrb(t_push_swap *ps, int is_rr)
 {
-	t_stack	*tmp;
-	int		last_value;
+	t_stack	*tmp1;
+	int		tmp2;
 
-	tmp = ps->b;
-	while (tmp->next)
-		tmp = tmp->next;
-	last_value = tmp->value;
-	while (tmp->prev)
+	tmp1 = ps->b;
+	tmp2 = ps->b->value;
+	while (tmp1->next)
 	{
-		tmp->value = tmp->prev->value;
-		tmp = tmp->prev;
+		tmp1->value = tmp1->next->value;
+		tmp1 = tmp1->next;
 	}
-	tmp->value = last_value;
+	tmp1->value = tmp2;
+	if (!is_rr)
+		post_rrb(ps);
+}
+
+void	post_rrb(t_push_swap *ps)
+{
+	ft_printf("rrb\n");
+	if (DEBUG)
+		stack_view(ps);
 }

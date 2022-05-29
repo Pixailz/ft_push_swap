@@ -1,19 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rrr.c                                              :+:      :+:    :+:   */
+/*   algo_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/27 01:08:49 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/05/29 16:38:45 by brda-sil         ###   ########.fr       */
+/*   Created: 2022/05/29 16:26:34 by brda-sil          #+#    #+#             */
+/*   Updated: 2022/05/29 17:09:51 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rrr(t_push_swap *ps)
+int	is_sorted(t_push_swap *ps)
 {
-	rra(ps, 1);
-	rrb(ps, 1);
+	t_stack	*tmp;
+
+	tmp = ps->a;
+	while (tmp->next)
+	{
+		if (tmp->value > tmp->next->value)
+			return (0);
+		tmp = tmp->next;
+	}
+	return (1);
 }

@@ -1,49 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_utils.2.c                                    :+:      :+:    :+:   */
+/*   stack_free.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/24 18:20:40 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/05/28 14:53:37 by brda-sil         ###   ########.fr       */
+/*   Created: 2022/05/25 13:34:06 by brda-sil          #+#    #+#             */
+/*   Updated: 2022/05/29 15:42:55 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	stack_view(t_stack *s)
+void	stack_free(t_stack *s)
 {
 	t_stack	*tmp;
 
-	tmp = s;
-	while (tmp)
+	while (s->next)
 	{
-		ft_printf("s[%d] -> %d\n", tmp->index, tmp->value);
-		tmp = tmp->next;
+		tmp = s->next;
+		free(s);
+		s = tmp;
 	}
-	ft_putchar('\n');
+	free(s);
 }
 
-void	stack_pop_top(t_stack *s)
+void	free_entry_point(t_push_swap *ps)
 {
-	t_stack	*tmp;
-
-	tmp = s;
-	while (tmp->next)
-	{
-		tmp = tmp->next;
-	}
-	tmp->prev->next = NULL;
-	free(tmp);
-}
-
-int	stack_get_value_at_index(t_stack *s, int index)
-{
-	t_stack	*tmp;
-
-	tmp = s;
-	while (tmp->next && tmp->index != index)
-		tmp = tmp->next;
-	return (tmp->value);
+	if (!ps->is_stack_a_empty)
+		stack_free(ps->a);
+	if (!ps->is_stack_b_empty)
+		stack_free(ps->b);
 }

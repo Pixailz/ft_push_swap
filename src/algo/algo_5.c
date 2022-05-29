@@ -1,33 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_free.c                                       :+:      :+:    :+:   */
+/*   algo_5.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/25 13:34:06 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/05/28 14:19:35 by brda-sil         ###   ########.fr       */
+/*   Created: 2022/05/29 17:18:14 by brda-sil          #+#    #+#             */
+/*   Updated: 2022/05/29 17:56:03 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	stack_free(t_stack *s)
+void	algo_5(t_push_swap *ps)
 {
-	t_stack	*tmp;
-
-	while (s->next)
+	while (!is_sorted(ps))
 	{
-		tmp = s->next;
-		free(s);
-		s = tmp;
+		if (stack_get_value_before_top(ps->a) > stack_get_value_at_top(ps->a))
+		{
+			sa(ps, 0);
+			if (!is_sorted(ps))
+				rra(ps, 0);
+		}
+		else
+			ra(ps, 0);
 	}
-	free(s);
 }
 
-void	free_entry_point(t_push_swap *ps)
-{
-	stack_free(ps->a);
-	if (!ps->is_stack_b_empty)
-		stack_free(ps->b);
-}
+/*
+1 3 4 5 2
+sa
+1 3 4 2 5
+rra
+3 4 2 5 1
+sa
+3 4 2 1 5
+
+*/

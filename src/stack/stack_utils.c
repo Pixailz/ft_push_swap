@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 18:20:40 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/05/27 03:27:59 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/05/29 16:04:13 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,34 @@
 
 t_stack	*stack_new(int content, int index)
 {
-	t_stack	*ptr;
+	t_stack	*tmp;
 
-	ptr = (t_stack *)malloc(sizeof(t_stack));
-	ptr->next = NULL;
-	ptr->prev = NULL;
-	ptr->index = index;
-	ptr->value = content;
-	return (ptr);
+	tmp = (t_stack *)malloc(sizeof(t_stack));
+	tmp->next = NULL;
+	tmp->prev = NULL;
+	tmp->index = index;
+	tmp->value = content;
+	return (tmp);
+}
+
+void	stack_new_b(int content, int index, t_push_swap *ps)
+{
+	ps->b = (t_stack *)malloc(sizeof(t_stack));
+	ps->b->next = NULL;
+	ps->b->prev = NULL;
+	ps->b->index = index;
+	ps->b->value = content;
+	ps->is_stack_b_empty = 0;
+}
+
+void	stack_new_a(int content, int index, t_push_swap *ps)
+{
+	ps->a = (t_stack *)malloc(sizeof(t_stack));
+	ps->a->next = NULL;
+	ps->a->prev = NULL;
+	ps->a->index = index;
+	ps->a->value = content;
+	ps->is_stack_a_empty = 0;
 }
 
 void	stack_push_top(t_stack *s, int value)
@@ -41,21 +61,6 @@ void	stack_push_top(t_stack *s, int value)
 	stack_arrange_index(s);
 }
 
-void	stack_arrange_index(t_stack *s)
-{
-	int		i;
-	t_stack	*tmp;
-
-	tmp = s;
-	i = 0;
-	while (tmp)
-	{
-		tmp->index = i;
-		tmp = tmp->next;
-		i++;
-	}
-}
-
 t_stack	*stack_push_bottom(t_stack *s, int value)
 {
 	t_stack	*tmp;
@@ -73,17 +78,4 @@ t_stack	*stack_push_bottom(t_stack *s, int value)
 	s = tmp->prev;
 	stack_arrange_index(s);
 	return (s);
-}
-
-int	stack_get_size(t_stack *s)
-{
-	int	i;
-
-	i = 1;
-	while (s->next)
-	{
-		i++;
-		s = s->next;
-	}
-	return (i);
 }

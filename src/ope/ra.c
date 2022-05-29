@@ -6,33 +6,34 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 01:08:49 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/05/27 17:53:15 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/05/29 17:05:36 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ra(t_push_swap *ps)
+void	ra(t_push_swap *ps, int is_rrr)
 {
-	t_stack	*tmp1;
-	int		tmp2;
+	t_stack	*tmp;
+	int		last_value;
 
-	tmp1 = ps->a;
-	tmp2 = ps->a->value;
-	while (tmp1->next)
+	tmp = ps->a;
+	while (tmp->next)
+		tmp = tmp->next;
+	last_value = tmp->value;
+	while (tmp->prev)
 	{
-		tmp1->value = tmp1->next->value;
-		tmp1 = tmp1->next;
+		tmp->value = tmp->prev->value;
+		tmp = tmp->prev;
 	}
-	tmp1->value = tmp2;
+	tmp->value = last_value;
+	if (!is_rrr)
+		post_ra(ps);
 }
 
-/*
-s[0] -> 1
-s[1] -> 2
-s[2] -> 3
-BECuM
-s[0] -> 2
-s[1] -> 3
-s[2] -> 1
-*/
+void	post_ra(t_push_swap *ps)
+{
+	ft_printf("ra\n");
+	if (DEBUG)
+		stack_view(ps);
+}

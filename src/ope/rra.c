@@ -1,40 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rra.c                                              :+:      :+:    :+:   */
+/*   rrra.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 01:08:49 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/05/27 17:49:39 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/05/29 17:04:42 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rra(t_push_swap *ps)
+void	rra(t_push_swap *ps, int is_rr)
 {
-	t_stack	*tmp;
-	int		last_value;
+	t_stack	*tmp1;
+	int		tmp2;
 
-	tmp = ps->a;
-	while (tmp->next)
-		tmp = tmp->next;
-	last_value = tmp->value;
-	while (tmp->prev)
+	tmp1 = ps->a;
+	tmp2 = ps->a->value;
+	while (tmp1->next)
 	{
-		tmp->value = tmp->prev->value;
-		tmp = tmp->prev;
+		tmp1->value = tmp1->next->value;
+		tmp1 = tmp1->next;
 	}
-	tmp->value = last_value;
+	tmp1->value = tmp2;
+	if (!is_rr)
+		post_rra(ps);
 }
 
-/*
-s[0] -> 1
-s[1] -> 2
-s[2] -> 3
-BECuM
-s[0] -> 3
-s[1] -> 1
-s[2] -> 2
-*/
+void	post_rra(t_push_swap *ps)
+{
+	ft_printf("rra\n");
+	if (DEBUG)
+		stack_view(ps);
+}
