@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 23:56:44 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/05/29 19:54:57 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/05/29 21:46:56 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,6 +73,9 @@ void		algo_5(t_push_swap *ps);
 
 // algo/algo_utils.c
 int			is_sorted(t_push_swap *ps);
+int			is_r_sorted_b(t_push_swap *ps);
+int			get_less_significant(t_stack *s);
+int			get_most_significant(t_stack *s);
 
 // ope/pa.c
 void		pa(t_push_swap *ps);
