@@ -1,34 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   algo_2.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/11 23:57:29 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/05/29 18:03:07 by brda-sil         ###   ########.fr       */
+/*   Created: 2022/05/29 18:01:23 by brda-sil          #+#    #+#             */
+/*   Updated: 2022/05/29 18:02:06 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+void	algo_2(t_push_swap *ps)
 {
-	t_push_swap	ps;
-
-	if (argc < 2)
-		ft_error("not enought args");
-	ps.a = parse(argc, argv);
-	ps.is_stack_a_empty = 0;
-	ps.is_stack_b_empty = 1;
-	if (DEBUG)
-		stack_view(&ps);
-	if (stack_get_size(ps.a) == 2)
-		algo_2(&ps);
-	else if (stack_get_size(ps.a) == 3)
-		algo_3(&ps);
-	if (DEBUG)
-		stack_view(&ps);
-	free_entry_point(&ps);
-	return (0);
+	if (ps->a->value > ps->a->next->value)
+		sa(ps, 0);
 }

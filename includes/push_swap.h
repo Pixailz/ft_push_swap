@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 23:56:44 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/05/29 17:53:10 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/05/29 18:04:17 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 /* ####### */
 
 # ifndef DEBUG
-#  define DEBUG 1
+#  define DEBUG 0
 # endif
 
 # define MAX_INT 2147483647
@@ -61,6 +61,9 @@ typedef struct s_push_swap
 /* ########################################################################## */
 /* FILES */
 /* ##### */
+
+// algo/algo_2.c
+void		algo_2(t_push_swap *ps);
 
 // algo/algo_3.c
 void		algo_3(t_push_swap *ps);
