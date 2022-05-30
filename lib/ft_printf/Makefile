@@ -34,18 +34,18 @@ OBJ_DIR			:= obj
 INC_DIR			:= includes
 
 # SRC
-SRC_C			:= src/ft_putnbr_u.c \
-				   src/ft_put_addr.c \
+SRC_C			:= src/ft_checkparams.c \
+				   src/ft_error.c \
 				   src/ft_parse.c \
-				   src/ft_sel_params.c \
 				   src/ft_printf.c \
-				   src/ft_putstr.c \
-				   src/ft_putnbr.c \
-				   src/ft_puthex.c \
+				   src/ft_put_addr.c \
 				   src/ft_putchar.c \
-				   src/ft_strlenn.c \
-				   src/ft_checkparams.c \
-				   src/ft_error.c
+				   src/ft_puthex.c \
+				   src/ft_putnbr.c \
+				   src/ft_putnbr_u.c \
+				   src/ft_putstr.c \
+				   src/ft_sel_params.c \
+				   src/ft_strlenn.c
 
 # OBJ
 OBJ_C			:= $(patsubst $(SRC_DIR)/%,$(OBJ_DIR)/%,$(SRC_C:%.c=%.o))

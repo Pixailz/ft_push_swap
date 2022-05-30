@@ -1,7 +1,7 @@
 #!/bin/bash
 
 SRC_DIR="src"
-INC_FILE="includes/push_swap.h"
+INC_FILE=includes/push_swap.h
 
 while [ "$1" != "" ]
 do
@@ -33,7 +33,7 @@ function clear_header()
 function get_function_in_file()
 {
 	tmp_func=$(sed -nE 's|^[a-z0-9A-Z\_]+\s?(\**?[a-zA-Z\_]+)\s(\**?[a-z0-9A-Z\_]+)\(.*|\2|p' ${1} | \
-			   grep -vE '^static')
+			   grep -vE '^static' | sort)
 	tmp_file=$(echo ${file/*src\//})
 	insert_at_line "// ${tmp_file}"
 	for func in ${tmp_func}
@@ -110,7 +110,7 @@ function main ()
 {
 	clear_header
 	max_tab_num=0
-	ALL_C_FILE=$(find $(realpath ${SRC_DIR}) -name "*.c" | sort -n)
+	ALL_C_FILE=$(find $(realpath ${SRC_DIR}) -name "*.c" | sort)
 	for file in ${ALL_C_FILE}
 	do
 		get_function_in_file ${file}

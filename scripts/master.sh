@@ -2,7 +2,6 @@
 
 lib_dir=(
 	"lib/ft_printf"
-	"lib/gnl"
 	"lib/libft"
 )
 

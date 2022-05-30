@@ -49,29 +49,29 @@ LIBFT			:= $(LIB_DIR)/libft/libft.a
 FT_PRINTF		:= $(LIB_DIR)/ft_printf/ft_printf.a
 
 # SRC
-SRC_C			:= src/ope/pa.c \
+SRC_C			:= src/algo/algo_2.c \
+				   src/algo/algo_3.c \
+				   src/algo/algo_5.c \
+				   src/algo/algo_utils.c \
+				   src/ope/pa.c \
+				   src/ope/pb.c \
+				   src/ope/ra.c \
+				   src/ope/rb.c \
 				   src/ope/rra.c \
 				   src/ope/rrb.c \
 				   src/ope/rr.c \
+				   src/ope/rrr.c \
 				   src/ope/sa.c \
 				   src/ope/sb.c \
-				   src/ope/rb.c \
-				   src/ope/ra.c \
-				   src/ope/pb.c \
 				   src/ope/ss.c \
-				   src/ope/rrr.c \
-				   src/push_swap.c \
-				   src/stack/stack_utils.3.c \
-				   src/stack/stack_utils.c \
-				   src/stack/stack_utils.2.c \
-				   src/stack/stack_free.c \
-				   src/algo/algo_utils.c \
-				   src/algo/algo_2.c \
-				   src/algo/algo_3.c \
-				   src/algo/algo_5.c \
 				   src/parsing/parse.c \
 				   src/parsing/parse_check.2.c \
-				   src/parsing/parse_check.c
+				   src/parsing/parse_check.c \
+				   src/push_swap.c \
+				   src/stack/stack_free.c \
+				   src/stack/stack_utils.2.c \
+				   src/stack/stack_utils.3.c \
+				   src/stack/stack_utils.c
 
 # OBJ
 OBJ_C			:= $(patsubst $(SRC_DIR)/%,$(OBJ_DIR)/%,$(SRC_C:%.c=%.o))

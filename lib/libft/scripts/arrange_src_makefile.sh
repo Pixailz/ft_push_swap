@@ -48,7 +48,7 @@ function main()
 {
 	is_first=0
 	clean_source_makefile
-	for file in $(find ${SRC_DIR} -type f -name "*.c")
+	for file in $(find ${SRC_DIR} -type f -name "*.c" | sort)
 	do
 		if [ ${is_first} == 0 ]
 		then
