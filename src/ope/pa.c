@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/27 01:08:49 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/05/29 16:33:50 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/05/30 22:29:48 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,4 +43,5 @@ void	post_pa(t_push_swap *ps)
 	ft_printf("pa\n");
 	if (DEBUG)
 		stack_view(ps);
+	ps->length_a++;
 }

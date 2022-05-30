@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 23:56:44 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/05/30 01:50:21 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/05/30 23:49:38 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 /* ###### */
 
 # ifndef DEBUG
-#  define DEBUG 0
+#  define DEBUG 1
 # endif
 
 # define MAX_INT 2147483647
@@ -52,6 +52,7 @@ typedef struct s_push_swap
 {
 	t_stack	*a;
 	t_stack	*b;
+	int		length_a;
 	int		is_stack_b_empty;
 	int		is_stack_a_empty;
 }				t_push_swap;
@@ -71,9 +72,13 @@ void		algo_3(t_push_swap *ps);
 // algo/algo_5.c
 void		algo_5(t_push_swap *ps);
 
+// algo/algo_5_bis.c
+void		algo_5_bis(t_push_swap *ps);
+
 // algo/algo_utils.c
 int			get_less_significant(t_stack *s);
 int			get_most_significant(t_stack *s);
+int			get_most_significant_index(t_stack *s);
 int			is_r_sorted_b(t_push_swap *ps);
 int			is_sorted(t_push_swap *ps);
 

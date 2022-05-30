@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 16:26:34 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/05/29 21:36:54 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/05/30 21:58:14 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,4 +80,25 @@ int	get_most_significant(t_stack *s)
 		tmp = tmp->next;
 	}
 	return (saved_number);
+}
+
+int	get_most_significant_index(t_stack *s)
+{
+	t_stack	*tmp;
+	int		saved_index;
+	int		saved_number;
+
+	tmp = s;
+	saved_number = tmp->value;
+	saved_index = tmp->index;
+	while (tmp->next)
+	{
+		if (tmp->next->value > saved_number)
+		{
+			saved_index = tmp->next->index;
+			saved_number = tmp->next->value;
+		}
+		tmp = tmp->next;
+	}
+	return (saved_index);
 }

@@ -3,6 +3,7 @@
 ## TODO
 
 1. better algo for 5 and more
+2. fix algo for 5 ... not working
 
 ## stats
 

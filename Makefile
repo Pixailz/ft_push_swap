@@ -6,7 +6,7 @@
 #    By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/23 01:36:34 by brda-sil          #+#    #+#              #
-#    Updated: 2022/05/29 18:03:35 by brda-sil         ###   ########.fr        #
+#    Updated: 2022/05/30 21:56:40 by brda-sil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -52,6 +52,7 @@ FT_PRINTF		:= $(LIB_DIR)/ft_printf/ft_printf.a
 SRC_C			:= src/algo/algo_2.c \
 				   src/algo/algo_3.c \
 				   src/algo/algo_5.c \
+				   src/algo/algo_5_bis.c \
 				   src/algo/algo_utils.c \
 				   src/ope/pa.c \
 				   src/ope/pb.c \
