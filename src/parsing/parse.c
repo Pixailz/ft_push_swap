@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 16:58:39 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/05/29 13:53:26 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/05/31 16:21:54 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ t_stack	*parse_multiple_string(char **argv, int argc)
 	int		i;
 	t_stack	*s;
 
-	s = stack_new(ft_atoi(argv[1]), 0);
-	i = 2;
+	s = stack_new(ft_atoi(argv[argc-- - 1]), 0);
+	i = 1;
 	while (i < argc)
-		stack_push_top(s, ft_atoi(argv[i++]));
+		stack_push_top(s, ft_atoi(argv[argc-- - 1]));
 	return (s);
 }
 
@@ -34,9 +34,9 @@ t_stack	*parse_one_string(char *argv)
 	number_arg = ft_get_words(argv, ' ');
 	tmp_list = ft_split(argv, ' ');
 	i = 0;
-	s = stack_new(ft_atoi(tmp_list[i++]), 0);
+	s = stack_new(ft_atoi(tmp_list[number_arg-- - 1]), 0);
 	while (i < number_arg)
-		stack_push_top(s, ft_atoi(tmp_list[i++]));
+		stack_push_top(s, ft_atoi(tmp_list[number_arg-- - 1]));
 	ft_split_free(tmp_list);
 	free(tmp_list);
 	return (s);

@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 18:01:23 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/05/29 18:02:06 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/05/31 16:46:38 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 void	algo_2(t_push_swap *ps)
 {
-	if (ps->a->value > ps->a->next->value)
+	if (ps->a->value < ps->a->next->value)
 		sa(ps, 0);
 }

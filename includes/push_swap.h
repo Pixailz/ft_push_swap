@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 23:56:44 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/05/30 23:49:38 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/05/31 17:16:09 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 /* ###### */
 
 # ifndef DEBUG
-#  define DEBUG 1
+#  define DEBUG 0
 # endif
 
 # define MAX_INT 2147483647
@@ -69,11 +69,11 @@ void		algo_2(t_push_swap *ps);
 // algo/algo_3.c
 void		algo_3(t_push_swap *ps);
 
-// algo/algo_5.c
-void		algo_5(t_push_swap *ps);
-
 // algo/algo_5_bis.c
 void		algo_5_bis(t_push_swap *ps);
+
+// algo/algo_5.c
+void		algo_5(t_push_swap *ps);
 
 // algo/algo_utils.c
 int			get_less_significant(t_stack *s);
@@ -144,6 +144,7 @@ long int *number);
 int			parse_check_one_string(char *argv);
 
 // push_swap.c
+void		choose_algo(t_push_swap *ps);
 int			main(int argc, char **argv);
 
 // stack/stack_free.c

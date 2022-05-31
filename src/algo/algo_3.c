@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 13:37:33 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/05/29 17:45:53 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/05/31 17:21:19 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ void	algo_3(t_push_swap *ps)
 		{
 			sa(ps, 0);
 			if (!is_sorted(ps))
-				rra(ps, 0);
+				ra(ps, 0);
 		}
 		else
-			ra(ps, 0);
+			rra(ps, 0);
 	}
 }
 

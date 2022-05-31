@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 16:26:34 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/05/30 21:58:14 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/05/31 17:19:26 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	is_sorted(t_push_swap *ps)
 	{
 		while (tmp->next)
 		{
-			if (tmp->value > tmp->next->value)
+			if (tmp->value < tmp->next->value)
 				return (0);
 			tmp = tmp->next;
 		}
@@ -40,7 +40,7 @@ int	is_r_sorted_b(t_push_swap *ps)
 	{
 		while (tmp->next)
 		{
-			if (tmp->value < tmp->next->value)
+			if (tmp->value > tmp->next->value)
 				return (0);
 			tmp = tmp->next;
 		}
@@ -59,7 +59,7 @@ int	get_less_significant(t_stack *s)
 	saved_number = tmp->value;
 	while (tmp->next)
 	{
-		if (tmp->next->value < saved_number)
+		if (tmp->next->value > saved_number)
 			saved_number = tmp->next->value;
 		tmp = tmp->next;
 	}
@@ -75,7 +75,7 @@ int	get_most_significant(t_stack *s)
 	saved_number = tmp->value;
 	while (tmp->next)
 	{
-		if (tmp->next->value > saved_number)
+		if (tmp->next->value < saved_number)
 			saved_number = tmp->next->value;
 		tmp = tmp->next;
 	}
@@ -93,7 +93,7 @@ int	get_most_significant_index(t_stack *s)
 	saved_index = tmp->index;
 	while (tmp->next)
 	{
-		if (tmp->next->value > saved_number)
+		if (tmp->next->value < saved_number)
 		{
 			saved_index = tmp->next->index;
 			saved_number = tmp->next->value;
