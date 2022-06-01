@@ -1,58 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algo_3.c                                           :+:      :+:    :+:   */
+/*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/29 13:37:33 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/05/31 17:21:19 by brda-sil         ###   ########.fr       */
+/*   Created: 2022/06/01 01:26:42 by brda-sil          #+#    #+#             */
+/*   Updated: 2022/06/01 01:41:11 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	algo_3(t_push_swap *ps)
+void	init(t_push_swap *ps, int argc, char **argv)
 {
-	while (!is_sorted(ps))
-	{
-		if (stack_get_value_before_top(ps->a) > stack_get_value_at_top(ps->a))
-		{
-			sa(ps, 0);
-			if (!is_sorted(ps))
-				ra(ps, 0);
-		}
-		else
-			rra(ps, 0);
-	}
+	ps->a = parse(argc, argv);
+	ps->is_stack_a_empty = 0;
+	ps->is_stack_b_empty = 1;
+	ps->less_significant_index = get_less_significant_index(ps->a);
+	ps->less_significant_value = get_less_significant_value(ps->a);
+	ps->most_significant_index = get_most_significant_index(ps->a);
+	ps->most_significant_value = get_most_significant_value(ps->a);
+	ps->length_a = stack_get_size(ps->a);
 }
-
-/*
-3 2 1
-sa
-3 1 2
-rra
-1 2 3
-*/
-
-/*
-3 1 2
-rra
-2 3 1
-sa
-2 1 3
-ra
-1 3 2
-sa
-1 2 3
-*/
-
-/*
-1 3 2
-sa
-1 2 3
-|||||||||
-1 3 2
-ra
-1 2 3
-*/

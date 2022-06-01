@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 23:56:44 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/05/31 17:16:09 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/06/01 02:05:17 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,6 +55,10 @@ typedef struct s_push_swap
 	int		length_a;
 	int		is_stack_b_empty;
 	int		is_stack_a_empty;
+	int		less_significant_index;
+	int		less_significant_value;
+	int		most_significant_index;
+	int		most_significant_value;
 }				t_push_swap;
 
 /* ########################################################################## */
@@ -66,21 +70,32 @@ typedef struct s_push_swap
 // algo/algo_2.c
 void		algo_2(t_push_swap *ps);
 
-// algo/algo_3.c
-void		algo_3(t_push_swap *ps);
-
 // algo/algo_5_bis.c
 void		algo_5_bis(t_push_swap *ps);
+void		algo_5_bis_sort_sorted_not_good(t_push_swap *ps);
+void		algo_5_finish(t_push_swap *ps);
+void		move_stack_5_bis(t_push_swap *ps, int *less_significant_index);
 
 // algo/algo_5.c
 void		algo_5(t_push_swap *ps);
+void		move_stack_5(t_push_swap *ps, int *less_significant_index);
+
+// algo/algo_utils.2.c
+int			is_sorted_not_good_a(t_push_swap *ps);
+int			is_sorted_not_good_a_check(int value, int next_value);
 
 // algo/algo_utils.c
-int			get_less_significant(t_stack *s);
-int			get_most_significant(t_stack *s);
-int			get_most_significant_index(t_stack *s);
 int			is_r_sorted_b(t_push_swap *ps);
-int			is_sorted(t_push_swap *ps);
+int			is_sorted_a(t_push_swap *ps);
+
+// init/init.c
+void		init(t_push_swap *ps, int argc, char **argv);
+
+// init/init_get_significant.c
+int			get_less_significant_index(t_stack *s);
+int			get_less_significant_value(t_stack *s);
+int			get_most_significant_index(t_stack *s);
+int			get_most_significant_value(t_stack *s);
 
 // ope/pa.c
 void		pa(t_push_swap *ps);
