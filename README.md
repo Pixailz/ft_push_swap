@@ -3,7 +3,9 @@
 ## TODO
 
 1. better algo for 5 and more
-2. fix algo for 5 ... not working
+2. fix index
+	- rra, ra, sa, etc ..
+3. implement most/less signifcant value/index
 
 ## stats
 
