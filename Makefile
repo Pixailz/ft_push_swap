@@ -52,6 +52,7 @@ FT_PRINTF		:= $(LIB_DIR)/ft_printf/ft_printf.a
 SRC_C			:= src/algo/algo_2.c \
 				   src/algo/algo_5_bis.c \
 				   src/algo/algo_5.c \
+				   src/algo/algo_pre_sort.c \
 				   src/algo/algo_utils.2.c \
 				   src/algo/algo_utils.c \
 				   src/init/init.c \

@@ -80,6 +80,9 @@ void		move_stack_5_bis(t_push_swap *ps, int *less_significant_index);
 void		algo_5(t_push_swap *ps);
 void		move_stack_5(t_push_swap *ps, int *less_significant_index);
 
+// algo/algo_pre_sort.c
+void		pre_compute(t_push_swap *ps);
+
 // algo/algo_utils.2.c
 int			is_sorted_not_good_a(t_push_swap *ps);
 int			is_sorted_not_good_a_check(int value, int next_value);
