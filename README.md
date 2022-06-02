@@ -2,10 +2,9 @@
 
 ## TODO
 
-1. better algo for 5 and more
-2. fix index
-	- rra, ra, sa, etc ..
-3. implement most/less signifcant value/index
+1. make index according to pre_compute result
+2. make new algo with index instead of value
+3. brute force algo for 3, and use it for 5
 
 ## stats
 
