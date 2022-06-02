@@ -81,15 +81,19 @@ void		algo_5(t_push_swap *ps);
 void		move_stack_5(t_push_swap *ps, int *less_significant_index);
 
 // algo/algo_pre_sort.c
+t_stack		*algo_pre_compute(t_stack *tmp);
 void		pre_compute(t_push_swap *ps);
+void		pre_ra(t_stack *s);
+void		pre_rra(t_stack *s);
+void		pre_sa(t_stack *s);
 
 // algo/algo_utils.2.c
 int			is_sorted_not_good_a(t_push_swap *ps);
 int			is_sorted_not_good_a_check(int value, int next_value);
 
 // algo/algo_utils.c
-int			is_r_sorted_b(t_push_swap *ps);
-int			is_sorted_a(t_push_swap *ps);
+int			is_r_sorted(t_stack *s);
+int			is_sorted(t_stack *s);
 
 // init/init.c
 void		init(t_push_swap *ps, int argc, char **argv);

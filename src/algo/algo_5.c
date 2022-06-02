@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 17:18:14 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/05/31 23:37:24 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/06/02 18:49:50 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	algo_5(t_push_swap *ps)
 	less_significant_index = get_less_significant_index(ps->a);
 	while (ps->a)
 	{
-		if (is_sorted_a(ps))
+		if (is_sorted(ps->a))
 			break ;
 		if (stack_get_value_at_top(ps->a) == less_significant)
 		{
