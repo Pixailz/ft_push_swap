@@ -75,6 +75,7 @@ SRC_C			:= src/algo/algo_2.c \
 				   src/stack/stack_free.c \
 				   src/stack/stack_utils.2.c \
 				   src/stack/stack_utils.3.c \
+				   src/stack/stack_utils.4.c \
 				   src/stack/stack_utils.c
 
 # OBJ

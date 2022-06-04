@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
+/*   By: pix <pix@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 23:56:44 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/06/04 11:11:56 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/06/04 15:00:38 by pix              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,9 @@ void		algo_3(t_push_swap *ps);
 
 // algo/algo_5.c
 void		algo_5(t_push_swap *ps);
-void		move_stack_5(t_push_swap *ps, int *less_significant_index);
+void		move_stack_5(t_push_swap *ps, int less_significant_index);
+void		pb_less_significant(t_push_swap *ps);
+void		sort_3_last(t_push_swap *ps);
 
 // algo/algo_utils.2.c
 int			is_sorted_not_good_a(t_push_swap *ps);
@@ -180,6 +182,10 @@ int			stack_get_value_at_top(t_stack *s);
 int			stack_get_value_before_top(t_stack *s);
 void		stack_pop_top_a(t_push_swap *ps);
 void		stack_pop_top_b(t_push_swap *ps);
+
+// stack/stack_utils.4.c
+int			get_index_at_top(t_stack *s);
+int			get_pos_at_index(t_stack *s, int index);
 
 // stack/stack_utils.c
 t_stack		*stack_new(int content, int index);

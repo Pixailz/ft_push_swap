@@ -3,47 +3,75 @@
 /*                                                        :::      ::::::::   */
 /*   algo_5.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
+/*   By: pix <pix@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 17:18:14 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/06/03 23:42:47 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/06/04 15:00:14 by pix              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	move_stack_5(t_push_swap *ps, int *less_significant_index)
+void	move_stack_5(t_push_swap *ps, int less_significant_index)
 {
-	if (*less_significant_index + 1 > (ps->length_a / 2))
+	if (less_significant_index > (ps->length_a / 2))
 		ra(ps, 0);
 	else
 		rra(ps, 0);
-	*less_significant_index = get_less_significant_index(ps->a);
+}
+
+void	pb_less_significant(t_push_swap *ps)
+{
+	int		less_significant;
+
+	less_significant = get_less_significant_index(ps->a);
+	while (get_index_at_top(ps->a) != less_significant)
+		move_stack_5(ps, get_pos_at_index(ps->a, less_significant));
+	pb(ps);
+	less_significant = get_less_significant_index(ps->a);
+	while (get_index_at_top(ps->a) != less_significant)
+		move_stack_5(ps, get_pos_at_index(ps->a, less_significant));
+	pb(ps);
+}
+
+void	sort_3_last(t_push_swap *ps)
+{
+	if (!is_sorted(ps->a))
+	{
+		if (ps->a->index == 2)
+		{
+			if (ps->a->next->index == 0)
+				rra(ps, 0);
+			else
+			{
+				sa(ps, 0);
+				rra(ps, 0);
+			}
+		}
+		else if (ps->a->index == 1)
+		{
+			if (ps->a->next->index == 2)
+				ra(ps, 0);
+			else
+			{
+				rra(ps, 0);
+				sa(ps, 0);
+			}
+		}
+		else
+			sa(ps, 0);
+	}
 }
 
 void	algo_5(t_push_swap *ps)
 {
-	int		less_significant;
-	int		less_significant_index;
-
-	less_significant = get_less_significant_value(ps->a);
-	less_significant_index = get_less_significant_index(ps->a);
-	while (ps->a)
+	if (!is_sorted(ps->a))
 	{
-		if (is_sorted(ps->a))
-			break ;
-		if (stack_get_value_at_top(ps->a) == less_significant)
-		{
-			pb(ps);
-			if (ps->is_stack_a_empty)
-				break ;
-			less_significant = get_less_significant_value(ps->a);
-		}
-		else
-			move_stack_5(ps, &less_significant_index);
+		pb_less_significant(ps);
+		sort_3_last(ps);
+		while (ps->length_b)
+			pa(ps);
 	}
-	while (!ps->is_stack_b_empty)
-		pa(ps);
 }
 
 /*

@@ -1,42 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algo_3.c                                           :+:      :+:    :+:   */
+/*   stack_utils.4.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pix <pix@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/06/03 23:03:06 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/06/04 14:40:07 by pix              ###   ########.fr       */
+/*   Created: 2022/06/04 14:24:49 by pix               #+#    #+#             */
+/*   Updated: 2022/06/04 14:51:30 by pix              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	algo_3(t_push_swap *ps)
+int	get_index_at_top(t_stack *s)
 {
-	if (!is_sorted(ps->a))
+	t_stack	*tmp;
+
+	tmp = s;
+	while (tmp->next)
+		tmp = tmp->next;
+	return (tmp->index);
+}
+
+int	get_pos_at_index(t_stack *s, int index)
+{
+	t_stack	*tmp;
+	int		pos;
+
+	tmp = s;
+	pos = 1;
+	while (tmp->next && tmp->index != index)
 	{
-		if (ps->a->index == 2)
-		{
-			if (ps->a->next->index == 0)
-				rra(ps, 0);
-			else
-			{
-				sa(ps, 0);
-				rra(ps, 0);
-			}
-		}
-		else if (ps->a->index == 1)
-		{
-			if (ps->a->next->index == 2)
-				ra(ps, 0);
-			else
-			{
-				rra(ps, 0);
-				sa(ps, 0);
-			}
-		}
-		else
-			sa(ps, 0);
+		tmp = tmp->next;
+		pos++;
 	}
+	return (pos);
 }

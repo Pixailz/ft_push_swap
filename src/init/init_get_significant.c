@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init_get_significant.c                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
+/*   By: pix <pix@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 01:26:42 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/06/04 11:23:58 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/06/04 13:45:48 by pix              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,6 @@ int	get_most_significant_index(t_stack *s)
 {
 	t_stack	*tmp;
 	int		saved_index;
-	int		saved_number;
 
 	tmp = s;
 	saved_index = tmp->index;
