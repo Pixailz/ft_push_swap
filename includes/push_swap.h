@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 23:56:44 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/06/01 02:05:17 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/06/03 23:59:13 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 /* ###### */
 
 # ifndef DEBUG
-#  define DEBUG 0
+#  define DEBUG 1
 # endif
 
 # define MAX_INT 2147483647
@@ -53,6 +53,7 @@ typedef struct s_push_swap
 	t_stack	*a;
 	t_stack	*b;
 	int		length_a;
+	int		length_b;
 	int		is_stack_b_empty;
 	int		is_stack_a_empty;
 	int		less_significant_index;
@@ -70,6 +71,9 @@ typedef struct s_push_swap
 // algo/algo_2.c
 void		algo_2(t_push_swap *ps);
 
+// algo/algo_3.c
+void		algo_3(t_push_swap *ps);
+
 // algo/algo_5_bis.c
 void		algo_5_bis(t_push_swap *ps);
 void		algo_5_bis_sort_sorted_not_good(t_push_swap *ps);
@@ -80,19 +84,12 @@ void		move_stack_5_bis(t_push_swap *ps, int *less_significant_index);
 void		algo_5(t_push_swap *ps);
 void		move_stack_5(t_push_swap *ps, int *less_significant_index);
 
-// algo/algo_pre_sort.c
-t_stack		*algo_pre_compute(t_stack *tmp);
-void		pre_compute(t_push_swap *ps);
-void		pre_ra(t_stack *s);
-void		pre_rra(t_stack *s);
-void		pre_sa(t_stack *s);
-
 // algo/algo_utils.2.c
 int			is_sorted_not_good_a(t_push_swap *ps);
 int			is_sorted_not_good_a_check(int value, int next_value);
 
 // algo/algo_utils.c
-int			is_r_sorted(t_stack *s);
+int			is_r_sorted(t_stack *s, int size);
 int			is_sorted(t_stack *s);
 
 // init/init.c
@@ -165,13 +162,19 @@ long int	parse_check_one_is_good_number(char **tmp_list, int i, \
 long int *number);
 int			parse_check_one_string(char *argv);
 
+// pre_compute/algo_pre_sort.c
+void		arrange_index(t_push_swap *ps, int *list);
+int			*get_list(t_stack *s, int length);
+int			*get_sorted_list(t_stack *s, int length);
+void		pre_compute(t_push_swap *ps);
+
 // push_swap.c
 void		choose_algo(t_push_swap *ps);
 int			main(int argc, char **argv);
 
 // stack/stack_free.c
 void		free_entry_point(t_push_swap *ps);
-void		stack_free(t_stack *s);
+void		stack_free(t_stack *s, int size);
 
 // stack/stack_utils.2.c
 int			stack_get_size(t_stack *s);
@@ -192,7 +195,7 @@ t_stack		*stack_new(int content, int index);
 void		stack_new_a(int content, int index, t_push_swap *ps);
 void		stack_new_b(int content, int index, t_push_swap *ps);
 t_stack		*stack_push_bottom(t_stack *s, int value);
-void		stack_push_top(t_stack *s, int value);
+void		stack_push_top(t_stack *s, int value, int index);
 
 /* ########################################################################## */
 

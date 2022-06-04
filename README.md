@@ -2,9 +2,8 @@
 
 ## TODO
 
-1. make index according to pre_compute result
-2. make new algo with index instead of value
-3. brute force algo for 3, and use it for 5
+1. make new algo with index instead of value
+2. brute force algo for 3, and use it for 5
 
 ## stats
 

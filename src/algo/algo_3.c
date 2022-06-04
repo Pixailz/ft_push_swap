@@ -1,48 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   algo_utils.c                                       :+:      :+:    :+:   */
+/*   algo_3.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/29 16:26:34 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/06/03 23:41:50 by brda-sil         ###   ########.fr       */
+/*   Created: 2022/06/03 23:03:06 by brda-sil          #+#    #+#             */
+/*   Updated: 2022/06/03 23:42:24 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	is_sorted(t_stack *s)
+void	algo_3(t_push_swap *ps)
 {
-	t_stack	*tmp;
-
-	tmp = s;
-	while (tmp->next)
+	if (!is_sorted(ps->a))
 	{
-		if (tmp->index < tmp->next->index)
-			return (0);
-		tmp = tmp->next;
+		if (ps->a->index == 1 && ps->a->next->index == 0 && \
+			ps->a->next->next->index == 2)
+			sa(ps, 0);
+		else if (ps->a->index == 1 && ps->a->next->index == 2 && \
+			ps->a->next->next->index == 0)
+			rra(ps, 0);
+		else if (ps->a->index == 2 && ps->a->next->index == 0 && \
+			ps->a->next->next->index == 1)
+			ra(ps, 0);
 	}
-	return (1);
-}
-
-int	is_r_sorted(t_stack *s, int size)
-{
-	t_stack	*tmp;
-	int		index;
-
-	index = 0;
-	tmp = s;
-	if (!tmp)
-	{
-		while (index < size)
-		{
-			if (tmp->index > tmp->next->index)
-				return (0);
-			tmp = tmp->next;
-		}
-		return (1);
-	}
-	else
-		return (0);
 }

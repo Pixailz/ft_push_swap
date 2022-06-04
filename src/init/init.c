@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 01:26:42 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/06/02 18:43:32 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/06/03 23:20:04 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,6 @@ void	init(t_push_swap *ps, int argc, char **argv)
 	ps->most_significant_index = get_most_significant_index(ps->a);
 	ps->most_significant_value = get_most_significant_value(ps->a);
 	ps->length_a = stack_get_size(ps->a);
+	ps->length_b = 0;
 	pre_compute(ps);
 }

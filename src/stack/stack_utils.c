@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 18:20:40 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/06/01 13:30:51 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/06/04 10:05:57 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,20 +44,16 @@ void	stack_new_a(int content, int index, t_push_swap *ps)
 	ps->is_stack_a_empty = 0;
 }
 
-void	stack_push_top(t_stack *s, int value)
+void	stack_push_top(t_stack *s, int value, int index)
 {
 	t_stack	*tmp;
-	int		i;
 
 	tmp = s;
-	i = 0;
 	while (tmp->next)
-	{
 		tmp = tmp->next;
-		i++;
-	}
-	tmp->next = stack_new(value, i + 1);
+	tmp->next = stack_new(value, index);
 	tmp->next->prev = tmp;
+	tmp->next->next = NULL;
 }
 
 t_stack	*stack_push_bottom(t_stack *s, int value)

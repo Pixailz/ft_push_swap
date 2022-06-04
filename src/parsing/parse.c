@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 16:58:39 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/05/31 16:21:54 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/06/03 23:08:16 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_stack	*parse_multiple_string(char **argv, int argc)
 	s = stack_new(ft_atoi(argv[argc-- - 1]), 0);
 	i = 1;
 	while (i < argc)
-		stack_push_top(s, ft_atoi(argv[argc-- - 1]));
+		stack_push_top(s, ft_atoi(argv[argc-- - 1]), 0);
 	return (s);
 }
 
@@ -36,7 +36,7 @@ t_stack	*parse_one_string(char *argv)
 	i = 0;
 	s = stack_new(ft_atoi(tmp_list[number_arg-- - 1]), 0);
 	while (i < number_arg)
-		stack_push_top(s, ft_atoi(tmp_list[number_arg-- - 1]));
+		stack_push_top(s, ft_atoi(tmp_list[number_arg-- - 1]), 0);
 	ft_split_free(tmp_list);
 	free(tmp_list);
 	return (s);

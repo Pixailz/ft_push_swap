@@ -6,7 +6,7 @@
 #    By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/23 01:36:34 by brda-sil          #+#    #+#              #
-#    Updated: 2022/06/01 02:05:30 by brda-sil         ###   ########.fr        #
+#    Updated: 2022/06/03 23:03:52 by brda-sil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ VERSION			:= 1.0.5
 $(eval export MAIN=1)
 
 ifneq ($(PADDING),30)
-PADDING			:= 30
+PADDING			:= 35
 endif
 
 ifeq ($(DEBUG),)
@@ -50,9 +50,9 @@ FT_PRINTF		:= $(LIB_DIR)/ft_printf/ft_printf.a
 
 # SRC
 SRC_C			:= src/algo/algo_2.c \
+				   src/algo/algo_3.c \
 				   src/algo/algo_5_bis.c \
 				   src/algo/algo_5.c \
-				   src/algo/algo_pre_sort.c \
 				   src/algo/algo_utils.2.c \
 				   src/algo/algo_utils.c \
 				   src/init/init.c \
@@ -71,6 +71,7 @@ SRC_C			:= src/algo/algo_2.c \
 				   src/parsing/parse.c \
 				   src/parsing/parse_check.2.c \
 				   src/parsing/parse_check.c \
+				   src/pre_compute/algo_pre_sort.c \
 				   src/push_swap.c \
 				   src/stack/stack_free.c \
 				   src/stack/stack_utils.2.c \
