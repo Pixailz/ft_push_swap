@@ -6,7 +6,7 @@
 #    By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/23 01:36:34 by brda-sil          #+#    #+#              #
-#    Updated: 2022/06/03 23:03:52 by brda-sil         ###   ########.fr        #
+#    Updated: 2022/06/04 11:17:49 by brda-sil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ TARGET			:= push_swap
 RM				:= rm -rf
 CC				:= gcc
 MAKE			:= make -C
-VERSION			:= 1.0.5
+VERSION			:= 2.0.0
 $(eval export MAIN=1)
 
 ifneq ($(PADDING),30)
@@ -51,7 +51,6 @@ FT_PRINTF		:= $(LIB_DIR)/ft_printf/ft_printf.a
 # SRC
 SRC_C			:= src/algo/algo_2.c \
 				   src/algo/algo_3.c \
-				   src/algo/algo_5_bis.c \
 				   src/algo/algo_5.c \
 				   src/algo/algo_utils.2.c \
 				   src/algo/algo_utils.c \

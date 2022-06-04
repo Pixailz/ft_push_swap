@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 23:56:44 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/06/03 23:59:13 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/06/04 11:11:56 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 /* ###### */
 
 # ifndef DEBUG
-#  define DEBUG 1
+#  define DEBUG 0
 # endif
 
 # define MAX_INT 2147483647
@@ -56,10 +56,7 @@ typedef struct s_push_swap
 	int		length_b;
 	int		is_stack_b_empty;
 	int		is_stack_a_empty;
-	int		less_significant_index;
-	int		less_significant_value;
 	int		most_significant_index;
-	int		most_significant_value;
 }				t_push_swap;
 
 /* ########################################################################## */
@@ -73,12 +70,6 @@ void		algo_2(t_push_swap *ps);
 
 // algo/algo_3.c
 void		algo_3(t_push_swap *ps);
-
-// algo/algo_5_bis.c
-void		algo_5_bis(t_push_swap *ps);
-void		algo_5_bis_sort_sorted_not_good(t_push_swap *ps);
-void		algo_5_finish(t_push_swap *ps);
-void		move_stack_5_bis(t_push_swap *ps, int *less_significant_index);
 
 // algo/algo_5.c
 void		algo_5(t_push_swap *ps);

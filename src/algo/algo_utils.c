@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 16:26:34 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/06/03 23:41:50 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/06/04 10:40:15 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	is_sorted(t_stack *s)
 	tmp = s;
 	while (tmp->next)
 	{
-		if (tmp->index < tmp->next->index)
+		if (tmp->index > tmp->next->index)
 			return (0);
 		tmp = tmp->next;
 	}
@@ -37,7 +37,7 @@ int	is_r_sorted(t_stack *s, int size)
 	{
 		while (index < size)
 		{
-			if (tmp->index > tmp->next->index)
+			if (tmp->index < tmp->next->index)
 				return (0);
 			tmp = tmp->next;
 		}

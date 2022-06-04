@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 23:57:29 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/06/04 09:58:55 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/06/04 11:15:01 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,9 @@ void	choose_algo(t_push_swap *ps)
 	else if (ps->length_a == 3)
 		algo_3(ps);
 	else if (ps->length_a > 3 && ps->length_a < 6)
-		algo_5_bis(ps);
+		algo_5(ps);
 	else
-		algo_5_bis(ps);
+		algo_5(ps);
 	if (DEBUG)
 		stack_view(ps);
 }
@@ -36,15 +36,9 @@ int	main(int argc, char **argv)
 	if (argc < 2)
 		ft_error("not enought args");
 	init(&ps, argc, argv);
-	//choose_algo(&ps);
-	sa(&ps, 0);
-	sa(&ps, 0);
-	pa(&ps);
-	pb(&ps);
-	pa(&ps);
-	pb(&ps);
-	pa(&ps);
-	rra(&ps, 0);
+	choose_algo(&ps);
+	//rra(&ps, 0);
+	//sa(&ps, 0);
 	free_entry_point(&ps);
 	return (0);
 }
