@@ -2,9 +2,7 @@
 
 ## TODO
 
-1. improve algo_10
-	- work with above 5 and under 10, make it "dynamic"
-	- do the same for algo_100
+1. improve above 10, to make algo working/passing the test
 2. clean file/function, lot of unused function
 
 ## GOAL
