@@ -49,8 +49,10 @@ LIBFT			:= $(LIB_DIR)/libft/libft.a
 FT_PRINTF		:= $(LIB_DIR)/ft_printf/ft_printf.a
 
 # SRC
-SRC_C			:= src/algo/algo_2.c \
+SRC_C			:= src/algo/algo_10.c \
+				   src/algo/algo_2.c \
 				   src/algo/algo_3.c \
+				   src/algo/algo_4.c \
 				   src/algo/algo_5.c \
 				   src/algo/algo_utils.2.c \
 				   src/algo/algo_utils.c \

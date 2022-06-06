@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pix <pix@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 23:56:44 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/06/04 15:00:38 by pix              ###   ########.fr       */
+/*   Updated: 2022/06/06 11:32:32 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,21 +65,28 @@ typedef struct s_push_swap
 /* FILES */
 /* ##### */
 
+// algo/algo_10.c
+void		algo_10(t_push_swap *ps);
+
 // algo/algo_2.c
 void		algo_2(t_push_swap *ps);
 
 // algo/algo_3.c
 void		algo_3(t_push_swap *ps);
 
+// algo/algo_4.c
+void		algo_4(t_push_swap *ps);
+void		sort_2_last(t_push_swap *ps);
+
 // algo/algo_5.c
 void		algo_5(t_push_swap *ps);
-void		move_stack_5(t_push_swap *ps, int less_significant_index);
-void		pb_less_significant(t_push_swap *ps);
 void		sort_3_last(t_push_swap *ps);
 
 // algo/algo_utils.2.c
 int			is_sorted_not_good_a(t_push_swap *ps);
 int			is_sorted_not_good_a_check(int value, int next_value);
+void		move_stack(t_push_swap *ps, int less_significant_index);
+void		pb_less_significant(t_push_swap *ps, int to_push);
 
 // algo/algo_utils.c
 int			is_r_sorted(t_stack *s, int size);
