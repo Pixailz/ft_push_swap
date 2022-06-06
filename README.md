@@ -2,8 +2,27 @@
 
 ## TODO
 
-1. make new algo with index instead of value
-2. brute force algo for 3, and use it for 5
+1. improve algo_10
+	- work with above 5 and under 10, make it "dynamic"
+	- do the same for algo_100
+2. clean file/function, lot of unused function
+
+## GOAL
+
+- 3:	2-3
+- 5:	8-12
+- 100:
+	1. 700
+	2. 900
+	3. 1100
+	4. 1300
+	5. 1500
+- 500:
+	1. 5500
+	2. 7000
+	3. 8500
+	4. 10000
+	5. 11500
 
 ## stats
 
@@ -40,3 +59,15 @@
 |5     |0     |10    |7.31     |10000  |
 
 > the rest is not working
+
+### 06/06/2022 10:43:00
+
+|LENGHT|MIN   |MAX   |MEDIUM   |NB_TEST|
+|:----:|:----:|:----:|:-------:|:-----:|
+|2     |0     |1     |0.50     |100    |
+|3     |0     |2     |1.19     |1000   |
+|5     |0     |10    |7.40     |1000   |
+|10    |17    |37    |27.29    |10000  |
+|100   |1190  |1705  |1457.92  |1000   |
+|500   |29410 |34755 |32311.66 |100    |
+|1000  |123682|132161|127820.70|10     |
