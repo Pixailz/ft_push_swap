@@ -3,36 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   algo_5.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pix <pix@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 17:18:14 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/06/04 15:00:14 by pix              ###   ########.fr       */
+/*   Updated: 2022/06/06 11:32:09 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	move_stack_5(t_push_swap *ps, int less_significant_index)
-{
-	if (less_significant_index > (ps->length_a / 2))
-		ra(ps, 0);
-	else
-		rra(ps, 0);
-}
-
-void	pb_less_significant(t_push_swap *ps)
-{
-	int		less_significant;
-
-	less_significant = get_less_significant_index(ps->a);
-	while (get_index_at_top(ps->a) != less_significant)
-		move_stack_5(ps, get_pos_at_index(ps->a, less_significant));
-	pb(ps);
-	less_significant = get_less_significant_index(ps->a);
-	while (get_index_at_top(ps->a) != less_significant)
-		move_stack_5(ps, get_pos_at_index(ps->a, less_significant));
-	pb(ps);
-}
 
 void	sort_3_last(t_push_swap *ps)
 {
@@ -65,9 +43,9 @@ void	sort_3_last(t_push_swap *ps)
 
 void	algo_5(t_push_swap *ps)
 {
-	if (!is_sorted(ps->a))
+	if (!is_sorted(ps->a) || ps->length_b)
 	{
-		pb_less_significant(ps);
+		pb_less_significant(ps, 2);
 		sort_3_last(ps);
 		while (ps->length_b)
 			pa(ps);

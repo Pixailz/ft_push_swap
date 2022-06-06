@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pix <pix@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 23:57:29 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/06/04 14:57:37 by pix              ###   ########.fr       */
+/*   Updated: 2022/06/06 11:46:46 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,14 @@ void	choose_algo(t_push_swap *ps)
 		algo_2(ps);
 	else if (ps->length_a == 3)
 		algo_3(ps);
+	else if (ps->length_a == 4)
+		algo_4(ps);
 	else if (ps->length_a == 5)
 		algo_5(ps);
+	else if (ps->length_a > 5 && ps->length_a < 11)
+		algo_10(ps);
 	else
-		algo_5(ps);
+		algo_10(ps);
 	if (DEBUG)
 		stack_view(ps);
 }

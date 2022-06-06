@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/31 23:43:25 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/06/01 01:03:10 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/06/06 11:02:47 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,26 @@ int	is_sorted_not_good_a(t_push_swap *ps)
 	return (1);
 }
 
-/*
-3 2 1
+void	move_stack(t_push_swap *ps, int less_significant_index)
+{
+	if (less_significant_index > (ps->length_a / 2))
+		ra(ps, 0);
+	else
+		rra(ps, 0);
+}
 
-2 1 3
+void	pb_less_significant(t_push_swap *ps, int to_push)
+{
+	int	index;
+	int	less_significant;
 
-1 3 2
-*/
+	index = 0;
+	while (index < to_push)
+	{
+		less_significant = get_less_significant_index(ps->a);
+		while (get_index_at_top(ps->a) != less_significant)
+			move_stack(ps, get_pos_at_index(ps->a, less_significant));
+		pb(ps);
+		index++;
+	}
+}
