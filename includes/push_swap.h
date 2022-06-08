@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 23:56:44 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/06/06 11:32:32 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/06/08 19:47:21 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,10 @@ typedef struct s_push_swap
 /* ########################################################################## */
 /* FILES */
 /* ##### */
+
+// algo/algo_100.c
+void		algo_100(t_push_swap *ps);
+void		algo_100_sort_25(int median, t_push_swap *ps);
 
 // algo/algo_10.c
 void		algo_10(t_push_swap *ps);

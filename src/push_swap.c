@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 23:57:29 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/06/08 11:13:18 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/06/08 16:10:05 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,6 @@ int	main(int argc, char **argv)
 	if (argc < 2)
 		ft_error("not enought args");
 	init(&ps, argc, argv);
-	stack_view(&ps);
 	choose_algo(&ps);
 	free_entry_point(&ps);
 	return (0);
