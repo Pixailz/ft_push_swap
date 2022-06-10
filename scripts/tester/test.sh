@@ -3,6 +3,8 @@
 #=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#==#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#=#
 #> utils/check function
 
+PUSH_SWAP_PATH="./bin/push_swap"
+
 # BASH COLOR :)
 blue="\x1b[38;5;75m"
 red="\x1b[38;5;196m"
@@ -99,7 +101,7 @@ function exec_push_swap()
 	index=0
 	while [ "${index}" -lt "${NB_TEST}" ]; do
 		printf "list number %d\r" $((${index} + 1))
-		./push_swap ${random_list[${index}]} > tmp_cycle
+		${PUSH_SWAP_PATH} ${random_list[${index}]} > tmp_cycle
 		echo $(wc -l ./tmp_cycle | cut -d' ' -f1) >> result_cycle
 		cat ./tmp_cycle | ./checker_linux ${random_list[${index}]} >> result_checker 2>>result_checker
 		let "index=${index}+1"
