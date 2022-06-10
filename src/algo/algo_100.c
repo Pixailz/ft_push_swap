@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/08 10:20:18 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/06/08 19:50:28 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/06/10 18:20:47 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,27 +15,28 @@
 void	pb_less_significant_bewteen(t_push_swap *ps, int median)
 {
 	int	min;
-	int	less_significant;
+	int	min_pos;
 
-	min = median - 25;
-	while (min < median)
+	min = median - 1;
+	while (min >= median - 25)
 	{
-		less_significant = min;
-		while (get_index_at_top(ps->a) != less_significant)
-			move_stack(ps, get_pos_at_index(ps->a, less_significant));
+		while (ps->a->index != min)
+		{
+			min_pos = get_pos_at_index(ps->a, min);
+			if (min_pos <= (ps->length_a / 2))
+				ra(ps, 0);
+			else
+				rra(ps, 0);
+		}
 		pb(ps);
-		min++;
+		min--;
 	}
 }
 
-void	algo_100_sort_25(int median, t_push_swap *ps)
+void	algo_100_sort_25(t_push_swap *ps, int min, int max)
 {
-	int	min;
-	int	max;
 	int	pos;
 
-	min = median * 25;
-	max = min + 25;
 	while (ps->b && max >= min)
 	{
 		pos = get_pos_at_index(ps->b, min);
@@ -48,39 +49,58 @@ void	algo_100_sort_25(int median, t_push_swap *ps)
 		{
 			sb(ps, 0);
 		}
-		else if (pos >= 10)
+		else if (pos - 1 > (ps->length_b / 2))
 			rrb(ps, 0);
 		else
 			rb(ps, 0);
 	}
 }
 
-void	algo_100_post(t_push_swap *ps)
+int	algo_100_check(t_stack *s, int median)
 {
-	while (ps->length_b)
-		pa(ps);
+	while (s)
+	{
+		if (!median && s->index <= 25)
+			return (1);
+		else if (median == 1 && s->index > 25 && s->index <= 50)
+			return (1);
+		else if (median == 2 && s->index > 50 && s->index <= 75)
+			return (1);
+		else if (median == 3 && s->index > 75 && s->index <= 100)
+			return (1);
+		s = s->next;
+	}
+	return (0);
+}
+
+void	algo_100_push_median(t_push_swap *ps, int median)
+{
+	while (algo_100_check(ps->a, median))
+	{
+		if (!median && ps->a->index <= 25)
+			pb(ps);
+		else if (median == 1 && ps->a->index > 25 && ps->a->index <= 50)
+			pb(ps);
+		else if (median == 2 && ps->a->index > 50 && ps->a->index <= 75)
+			pb(ps);
+		else if (median == 3 && ps->a->index > 75 && ps->a->index <= 100)
+			pb(ps);
+		else
+			ra(ps, 0);
+	}
 }
 
 void	algo_100(t_push_swap *ps)
 {
-	pb_less_significant_bewteen(ps, 25);
-	stack_view(ps);
-	algo_100_post(ps);
-	stack_view(ps);
-	//algo_100_sort_25(0, ps);
-	pb_less_significant_bewteen(ps, 50);
-	stack_view(ps);
-	algo_100_post(ps);
-	stack_view(ps);
-	//algo_100_sort_25(1, ps);
-	pb_less_significant_bewteen(ps, 75);
-	stack_view(ps);
-	algo_100_post(ps);
-	stack_view(ps);
-	//algo_100_sort_25(2, ps);
-	pb_less_significant_bewteen(ps, 100);
-	stack_view(ps);
-	algo_100_post(ps);
-	stack_view(ps);
-	//algo_100_sort_25(3, ps);
+	if (!is_sorted(ps->a))
+	{
+		algo_100_push_median(ps, 0);
+		algo_100_sort_25(ps, 0, 25);
+		algo_100_push_median(ps, 1);
+		algo_100_sort_25(ps, 26, 50);
+		algo_100_push_median(ps, 2);
+		algo_100_sort_25(ps, 51, 75);
+		algo_100_push_median(ps, 3);
+		algo_100_sort_25(ps, 76, 99);
+	}
 }
