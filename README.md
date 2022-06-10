@@ -2,8 +2,7 @@
 
 ## TODO
 
-1. improve above 10, to make algo working/passing the test
-2. clean file/function, lot of unused function
+1. fix radix sort ... not working
 
 ## GOAL
 
