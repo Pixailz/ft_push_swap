@@ -6,77 +6,61 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/24 18:20:40 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/06/03 23:39:21 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/06/10 15:16:53 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	stack_get_value_at_index(t_stack *s, int index)
+void	stack_swap_top(t_stack **s)
 {
-	t_stack	*tmp;
+	t_stack	*first;
 
-	tmp = s;
-	while (tmp->next && tmp->index != index)
-		tmp = tmp->next;
-	return (tmp->value);
+	if (!*s || !(*s)->next)
+		return ;
+	first = *s;
+	*s = (*s)->next;
+	first->prev = *s;
+	first->next = (*s)->next;
+	if (first->next)
+		first->next->prev = first;
+	(*s)->next = first;
+	(*s)->prev = NULL;
 }
 
-int	stack_get_size(t_stack *s)
+void	stack_rotate(t_stack **s)
 {
-	t_stack	*ptr;
-	int		size;
+	t_stack	*end;
+	t_stack	*first;
 
-	ptr = s;
-	size = 1;
-	while (ptr->next)
-	{
-		ptr = ptr->next;
-		size++;
-	}
-	return (size);
+	if (!*s)
+		return ;
+	first = *s;
+	end = *s;
+	while (end->next)
+		end = end->next;
+	*s = first->next;
+	first->prev = end;
+	if (first->next)
+		first->next->prev = NULL;
+	first->next = NULL;
+	end->next = first;
 }
 
-void	stack_view(t_push_swap *ps)
+void	stack_reverse_rotate(t_stack **s)
 {
-	stack_view_a(ps);
-	stack_view_b(ps);
-}
+	t_stack	*end;
+	t_stack	*first;
 
-void	stack_view_a(t_push_swap *ps)
-{
-	t_stack	*tmp;
-
-	if (ps->is_stack_a_empty)
-		ft_printf("A : empty\n");
-	else
-	{
-		tmp = ps->a;
-		ft_printf("A : ", tmp->value);
-		while (tmp)
-		{
-			ft_printf("%d ", tmp->value);
-			tmp = tmp->next;
-		}
-		ft_printf("\n");
-	}
-}
-
-void	stack_view_b(t_push_swap *ps)
-{
-	t_stack	*tmp;
-
-	if (ps->is_stack_b_empty)
-		ft_printf("B : empty\n\n");
-	else
-	{
-		tmp = ps->b;
-		ft_printf("B : ", tmp->value);
-		while (tmp)
-		{
-			ft_printf("%d ", tmp->value);
-			tmp = tmp->next;
-		}
-		ft_printf("\n\n");
-	}
+	if (!*s)
+		return ;
+	first = *s;
+	end = *s;
+	while (end->next)
+		end = end->next;
+	end->next = first;
+	end->next->prev = end;
+	if (end->prev)
+		end->prev->next = NULL;
+	*s = end;
 }

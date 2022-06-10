@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/05/27 01:08:49 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/06/04 10:07:18 by brda-sil         ###   ########.fr       */
+/*   Created: 2022/06/09 14:46:53 by brda-sil          #+#    #+#             */
+/*   Updated: 2022/06/10 15:32:02 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,35 +14,21 @@
 
 void	pb(t_push_swap *ps)
 {
-	t_stack	*tmp1;
-	t_stack	*tmp2;
-
-	tmp1 = ps->a;
-	tmp2 = ps->b;
-	if (ps->is_stack_a_empty)
+	if (ps->length_a < 1)
 		return ;
-	while (tmp1->next)
-		tmp1 = tmp1->next;
-	if (ps->is_stack_b_empty)
-	{
-		stack_new_b(tmp1->value, tmp1->index, ps);
-		stack_pop_top_a(ps);
-	}
+	if (!ps->length_b)
+		stack_get_new(&ps->b, ps->a->value, ps->a->index);
 	else
-	{
-		while (tmp2->next)
-			tmp2 = tmp2->next;
-		stack_push_top(ps->b, tmp1->value, tmp1->index);
-		stack_pop_top_a(ps);
-	}
+		stack_push_top(&ps->b, ps->a->value, ps->a->index);
+	stack_pop_top(&ps->a);
+	ps->length_b++;
+	ps->length_a--;
 	post_pb(ps);
 }
 
 void	post_pb(t_push_swap *ps)
 {
 	ft_printf("pb\n");
-	ps->length_a--;
-	ps->length_b++;
 	if (DEBUG)
 		stack_view(ps);
 }
