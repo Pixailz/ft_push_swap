@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 13:31:45 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/06/11 00:56:38 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/06/11 09:39:57 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,6 +85,7 @@ void	pre_compute(t_push_swap *ps)
 	list = get_sorted_list(ps->a, ps->length_a);
 	arrange_index(ps, list, 0);
 	free(list);
+	ps->is_computed = 1;
 }
 
 void	pre_compute_radix(t_push_swap *ps)
@@ -94,4 +95,5 @@ void	pre_compute_radix(t_push_swap *ps)
 	list = get_sorted_list(ps->a, ps->length_a);
 	arrange_index(ps, list, 1);
 	free(list);
+	ps->is_computed = 1;
 }

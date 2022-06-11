@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 17:18:14 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/06/10 16:25:47 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/06/11 09:49:12 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@
 
 void	algo_5(t_push_swap *ps)
 {
+	if (!ps->is_computed)
+		pre_compute(ps);
 	if (!is_sorted(ps->a) || ps->length_b)
 	{
 		pb_most_significant(ps, 2);

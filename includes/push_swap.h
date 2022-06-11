@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 23:56:44 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/06/11 02:00:50 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/06/11 09:37:27 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ typedef struct s_push_swap
 	t_stack	*b;
 	int		length_a;
 	int		length_b;
+	int		is_computed;
 	int		most_significant_index;
 }				t_push_swap;
 

@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/29 16:26:34 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/06/11 00:55:36 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/06/11 09:50:02 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,10 @@ int	is_r_sorted(t_stack *s)
 	while (tmp->next)
 	{
 		if (tmp->index > tmp->next->index)
-			return (0);
+			return (1);
 		tmp = tmp->next;
 	}
-	return (1);
+	return (0);
 }
 
 int	is_sorted_not_good_a_check(int value, int next_value)

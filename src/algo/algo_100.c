@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/08 10:20:18 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/06/11 02:27:11 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/06/11 09:49:11 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,8 @@ void	algo_100_push_median(t_push_swap *ps, int median)
 
 void	algo_100(t_push_swap *ps)
 {
+	if (!ps->is_computed)
+		pre_compute(ps);
 	if (!is_sorted(ps->a))
 	{
 		algo_100_push_median(ps, 0);
