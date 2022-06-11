@@ -3,6 +3,7 @@
 ## TODO
 
 1. improve lil bit algo_100
+2. add explanation (Makefile)
 
 ## GOAL
 
