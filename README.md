@@ -2,8 +2,7 @@
 
 ## TODO
 
-1. fix radix sort ... not working
-2. improve lil bit algo_100
+1. improve lil bit algo_100
 
 ## GOAL
 
@@ -89,3 +88,4 @@
 |5     |0     |10    |7.31     |10000  |
 |10    |17    |39    |27.28    |10000  |
 |100   |741   |897   |817.29   |10000  |
+|500   |      |      |         |1000   |
