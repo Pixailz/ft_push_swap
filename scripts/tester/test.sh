@@ -103,7 +103,7 @@ function exec_push_swap()
 		printf "list number %d\r" $((${index} + 1))
 		${PUSH_SWAP_PATH} ${random_list[${index}]} > tmp_cycle
 		echo $(wc -l ./tmp_cycle | cut -d' ' -f1) >> result_cycle
-		cat ./tmp_cycle | ./checker_linux ${random_list[${index}]} >> result_checker 2>>result_checker
+		cat ./tmp_cycle | ./scripts/tester/checker_linux ${random_list[${index}]} >> result_checker 2>>result_checker
 		let "index=${index}+1"
 	done
 	echo
