@@ -6,32 +6,11 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/08 10:20:18 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/06/10 18:20:47 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/06/11 02:04:18 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void	pb_less_significant_bewteen(t_push_swap *ps, int median)
-{
-	int	min;
-	int	min_pos;
-
-	min = median - 1;
-	while (min >= median - 25)
-	{
-		while (ps->a->index != min)
-		{
-			min_pos = get_pos_at_index(ps->a, min);
-			if (min_pos <= (ps->length_a / 2))
-				ra(ps, 0);
-			else
-				rra(ps, 0);
-		}
-		pb(ps);
-		min--;
-	}
-}
 
 void	algo_100_sort_25(t_push_swap *ps, int min, int max)
 {

@@ -55,6 +55,7 @@ SRC_C			:= src/algo/algo_100.c \
 				   src/algo/algo_3.c \
 				   src/algo/algo_4.c \
 				   src/algo/algo_5.c \
+				   src/algo/algo_radix.c \
 				   src/algo/algo_utils.2.c \
 				   src/algo/algo_utils.c \
 				   src/init/init.c \

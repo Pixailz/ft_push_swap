@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 23:57:29 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/06/08 16:10:05 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/06/11 00:33:13 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	choose_algo(t_push_swap *ps)
 	else if (ps->length_a == 100)
 		algo_100(ps);
 	else
-		algo_10(ps);
+		algo_radix_sort(ps);
 	if (DEBUG)
 		stack_view(ps);
 }

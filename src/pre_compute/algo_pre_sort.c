@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/01 13:31:45 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/06/10 15:56:09 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/06/11 00:56:38 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int	*get_sorted_list(t_stack *s, int length)
 	return (list);
 }
 
-void	arrange_index(t_push_swap *ps, int *list)
+void	arrange_index(t_push_swap *ps, int *list, int is_radix)
 {
 	int		index;
 	t_stack	*tmp;
@@ -66,7 +66,10 @@ void	arrange_index(t_push_swap *ps, int *list)
 		{
 			if (tmp->value == list[index])
 			{
-				tmp->index = ps->length_a - 1 - index;
+				if (is_radix)
+					tmp->index = index;
+				else
+					tmp->index = ps->length_a - 1 - index;
 				break ;
 			}
 			tmp = tmp->next;
@@ -80,6 +83,15 @@ void	pre_compute(t_push_swap *ps)
 	int		*list;
 
 	list = get_sorted_list(ps->a, ps->length_a);
-	arrange_index(ps, list);
+	arrange_index(ps, list, 0);
+	free(list);
+}
+
+void	pre_compute_radix(t_push_swap *ps)
+{
+	int		*list;
+
+	list = get_sorted_list(ps->a, ps->length_a);
+	arrange_index(ps, list, 1);
 	free(list);
 }

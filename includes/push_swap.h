@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 23:56:44 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/06/10 18:12:34 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/06/11 02:00:50 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,6 @@ void		algo_100(t_push_swap *ps);
 int			algo_100_check(t_stack *s, int median);
 void		algo_100_push_median(t_push_swap *ps, int median);
 void		algo_100_sort_25(t_push_swap *ps, int min, int max);
-void		pb_less_significant_bewteen(t_push_swap *ps, int median);
 
 // algo/algo_10.c
 void		algo_10(t_push_swap *ps);
@@ -86,13 +85,16 @@ void		algo_4(t_push_swap *ps);
 // algo/algo_5.c
 void		algo_5(t_push_swap *ps);
 
+// algo/algo_radix.c
+void		algo_radix_sort(t_push_swap *ps);
+
 // algo/algo_utils.2.c
 void		pa_all_b(t_push_swap *ps);
 void		pb_less_significant(t_push_swap *ps, int to_push);
 void		pb_most_significant(t_push_swap *ps, int to_push);
 
 // algo/algo_utils.c
-int			is_r_sorted(t_stack *s, int size);
+int			is_r_sorted(t_stack *s);
 int			is_sorted(t_stack *s);
 int			is_sorted_not_good_a(t_push_swap *ps);
 int			is_sorted_not_good_a_check(int value, int next_value);
@@ -168,10 +170,11 @@ long int *number);
 int			parse_check_one_string(char *argv);
 
 // pre_compute/algo_pre_sort.c
-void		arrange_index(t_push_swap *ps, int *list);
+void		arrange_index(t_push_swap *ps, int *list, int is_radix);
 int			*get_list(t_stack *s, int length);
 int			*get_sorted_list(t_stack *s, int length);
 void		pre_compute(t_push_swap *ps);
+void		pre_compute_radix(t_push_swap *ps);
 
 // push_swap.c
 void		choose_algo(t_push_swap *ps);
