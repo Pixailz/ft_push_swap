@@ -6,7 +6,7 @@
 /*   By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/25 16:58:39 by brda-sil          #+#    #+#             */
-/*   Updated: 2022/06/09 15:57:36 by brda-sil         ###   ########.fr       */
+/*   Updated: 2022/06/20 17:52:10 by brda-sil         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ void	parse(t_stack **a, int argc, char **argv)
 	if (argc == 2)
 	{
 		ptr = ft_strdup(argv[1]);
+		if (*argv[1] == 0)
+			ft_error("args must contain at least one number");
 		if (!parse_check_one_string(ptr))
 			ft_error("have same number in a single string");
 		parse_one_string(a, argv[1]);
