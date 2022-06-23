@@ -6,7 +6,7 @@
 #    By: brda-sil <brda-sil@students.42angouleme    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/04/23 01:36:34 by brda-sil          #+#    #+#              #
-#    Updated: 2022/06/11 09:57:05 by brda-sil         ###   ########.fr        #
+#    Updated: 2022/06/23 09:14:40 by brda-sil         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -145,11 +145,11 @@ define print_padded
 endef
 
 define usage
-$(orange_star) $(bold)$(TARGET)$(font_color): $(bold)needed_args \
-$(font_color)[$(bold)optional_args$(font_color)]$(reset)
-        $(bold)arg$(font_color): eplanation
-        $(bold)arg$(font_color): eplanation
-        $(bold)arg$(font_color): eplanation, $(bold)WARNING$(reset)
+$(orange_star) $(bold)$(TARGET)$(font_color): ./$(TARGET) $(bold)<list_of_number>$(reset)
+        $(bold)list_of_number$(font_color): the list to $(bold)sort$(font_color), with as \
+little cycle as possible
+        $(bold)scripts/tester/test.sh$(font_color): you can make $(bold)all$(font_color) mandatory test, with
+            ./scripts/tester/test.sh -m $(bold)<number_of_test>$(reset)
 $(font_color)Version: $(bold)$(VERSION)$(reset)
 
 endef
